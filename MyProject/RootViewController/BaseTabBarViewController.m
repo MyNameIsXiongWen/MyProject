@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.delegate = self;
-    self.view.backgroundColor = UIColor.purpleColor;
+    self.view.backgroundColor = UIColor.whiteColor;
     [self createChildViewControllers];
 }
 

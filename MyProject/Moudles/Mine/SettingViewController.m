@@ -1,29 +1,25 @@
 //
-//  MiddleViewController.m
-//  PPPPP
+//  SettingViewController.m
+//  MyProject
 //
-//  Created by jason on 2019/4/1.
+//  Created by jason on 2019/4/2.
 //  Copyright © 2019年 xiaobu. All rights reserved.
 //
 
-#import "MiddleViewController.h"
-#import "XWScrollView.h"
+#import "SettingViewController.h"
 
-@interface MiddleViewController ()
+@interface SettingViewController ()
 
 @end
 
-@implementation MiddleViewController
+@implementation SettingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    XWScrollView *scroll = [[XWScrollView alloc] initWithFrame:CGRectMake(0, 64, kScreenW, 200) ImgArray:@[@"1",@"2",@"3",@"4",@"5"].mutableCopy CurrentIndex:0];
-    scroll.selectItemBlock = ^(NSInteger index) {
-        NSLog(@"======%d",index);
-    };
-    [self.view addSubview:scroll];
+    UIView *vvv = [[UIView alloc] initWithFrame:CGRectMake(100, 200, 100, 50)];
+    vvv.backgroundColor = UIColor.orangeColor;
+    [self.view addSubview:vvv];
 }
 
 /*

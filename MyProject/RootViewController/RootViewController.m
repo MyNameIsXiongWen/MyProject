@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import "SettingViewController.h"
 
 @interface RootViewController () <UIGestureRecognizerDelegate>
 
@@ -49,6 +50,12 @@
         self.alphaView.hidden = YES;
         [self.view addSubview:self.alphaView];
         
+        side.didSelectedIndexPath = ^(NSIndexPath * _Nonnull indexPath) {
+            SettingViewController *setting = SettingViewController.new;
+            UINavigationController *nav = (UINavigationController *)self.tabbarVC.selectedViewController;
+            [nav pushViewController:setting animated:YES];
+        };
+        
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapSideVC)];
         tap.delegate = self;
         [self.alphaView addGestureRecognizer:tap];
@@ -76,7 +83,7 @@
 }
 
 - (void)hideSideVC:(NSNotification *)notification {
-    [self hideSide];
+    [self hideSide:YES];
 }
 
 - (CGFloat)getDistance {
@@ -84,7 +91,7 @@
 }
 
 - (void)tapSideVC {
-    [self hideSide];
+    [self hideSide:YES];
 }
 
 - (void)panGesture:(UIPanGestureRecognizer *)gesture {
@@ -128,7 +135,7 @@
             [self showSide];
         }
         else {
-            [self hideSide];
+            [self hideSide:YES];
         }
     }
 }
@@ -145,8 +152,19 @@
     }];
 }
 
-- (void)hideSide {
-    [UIView animateWithDuration:[self getAnimationDurationShow:NO] animations:^{
+- (void)hideSide:(BOOL)animation {
+    if (animation) {
+        [UIView animateWithDuration:[self getAnimationDurationShow:NO] animations:^{
+            CGRect rootViewFrame = self.tabbarVC.view.frame;
+            CGRect sideViewFrame = self.sideVC.view.frame;
+            sideViewFrame.origin.x = (self.rightSpace-kScreenW)/2;
+            rootViewFrame.origin.x = 0;
+            self.tabbarVC.view.frame = rootViewFrame;
+            self.sideVC.view.frame = sideViewFrame;
+            self.alphaView.backgroundColor = [UIColor.blackColor colorWithAlphaComponent:0];
+        }];
+    }
+    else {
         CGRect rootViewFrame = self.tabbarVC.view.frame;
         CGRect sideViewFrame = self.sideVC.view.frame;
         sideViewFrame.origin.x = (self.rightSpace-kScreenW)/2;
@@ -154,7 +172,7 @@
         self.tabbarVC.view.frame = rootViewFrame;
         self.sideVC.view.frame = sideViewFrame;
         self.alphaView.backgroundColor = [UIColor.blackColor colorWithAlphaComponent:0];
-    }];
+    };
 }
 
 - (CGFloat)getAnimationDurationShow:(BOOL)show {
@@ -176,7 +194,11 @@
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     if (gestureRecognizer == self.pan) {
-        
+        NSArray *controllers = @[@"HomeViewController",@"MiddleViewController",@"MineViewController"];
+        UINavigationController *nav = (UINavigationController *)self.tabbarVC.selectedViewController;
+        if (![controllers containsObject:NSStringFromClass(nav.visibleViewController.class)]) {
+            return NO;
+        }
     }
     return YES;
 }

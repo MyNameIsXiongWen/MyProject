@@ -25,7 +25,7 @@
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    NSArray *controllers = @[@"HomeViewController",@"MiddleViewController",@"LastViewController",@"MineViewController"];
+    NSArray *controllers = @[@"HomeViewController",@"MiddleViewController",@"MineViewController"];
     if (![controllers containsObject:NSStringFromClass(viewController.class)]) {
         viewController.hidesBottomBarWhenPushed = YES;
     }

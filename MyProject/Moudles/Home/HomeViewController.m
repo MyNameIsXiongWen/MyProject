@@ -18,7 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = UIColor.whiteColor;
-    UIView *vvv = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 50)];
+    [self.leftNavBtn setImage:UIImageMake(@"") forState:0];
+    UIView *vvv = [[UIView alloc] initWithFrame:CGRectMake(100, 200, 100, 50)];
     vvv.backgroundColor = UIColor.orangeColor;
     vvv.userInteractionEnabled = YES;
     [self.view addSubview:vvv];
@@ -27,8 +28,6 @@
 
 - (void)tapvvv {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSideVC" object:nil];
-//    UIViewController *vvv = (UIViewController *)[NSClassFromString(@"ViewController") new];
-//    [self.navigationController pushViewController:vvv animated:YES];
 }
 
 /*

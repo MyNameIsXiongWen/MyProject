@@ -48,6 +48,10 @@
 		961CADDF2252FA1000110AD0 /* UIViewController+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADBC2252FA1000110AD0 /* UIViewController+Category.m */; };
 		961CADE02252FA1000110AD0 /* MKShadowCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADBF2252FA1000110AD0 /* MKShadowCollectionViewCell.m */; };
 		961CADE12252FA1000110AD0 /* MKShadowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADC12252FA1000110AD0 /* MKShadowTableViewCell.m */; };
+		961CADE52253162400110AD0 /* XWScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADE42253162400110AD0 /* XWScrollView.m */; };
+		961CADE82253166800110AD0 /* UICollectionView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADE72253166800110AD0 /* UICollectionView+Category.m */; };
+		961CADEE2253352100110AD0 /* UITableView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADED2253352100110AD0 /* UITableView+Category.m */; };
+		961CADF22253382E00110AD0 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADF12253382E00110AD0 /* SettingViewController.m */; };
 		D09C58226C58FC553C498BC7 /* libPods-MyProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 716F5AE204F42E6EDD46EA45 /* libPods-MyProject.a */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +135,14 @@
 		961CADBF2252FA1000110AD0 /* MKShadowCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKShadowCollectionViewCell.m; sourceTree = "<group>"; };
 		961CADC02252FA1000110AD0 /* MKShadowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKShadowTableViewCell.h; sourceTree = "<group>"; };
 		961CADC12252FA1000110AD0 /* MKShadowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKShadowTableViewCell.m; sourceTree = "<group>"; };
+		961CADE32253162400110AD0 /* XWScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XWScrollView.h; sourceTree = "<group>"; };
+		961CADE42253162400110AD0 /* XWScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XWScrollView.m; sourceTree = "<group>"; };
+		961CADE62253166800110AD0 /* UICollectionView+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Category.h"; sourceTree = "<group>"; };
+		961CADE72253166800110AD0 /* UICollectionView+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Category.m"; sourceTree = "<group>"; };
+		961CADEC2253352100110AD0 /* UITableView+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+Category.h"; sourceTree = "<group>"; };
+		961CADED2253352100110AD0 /* UITableView+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Category.m"; sourceTree = "<group>"; };
+		961CADF02253382E00110AD0 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		961CADF12253382E00110AD0 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		A60AAA79F435DD636C29E5C9 /* Pods-MyProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyProject/Pods-MyProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,8 +206,6 @@
 				961CAD5F2252F21600110AD0 /* BaseTabBarViewController.m */,
 				961CAD622252F21600110AD0 /* RootViewController.h */,
 				961CAD5C2252F21500110AD0 /* RootViewController.m */,
-				961CAD602252F21600110AD0 /* SideViewController.h */,
-				961CAD5D2252F21500110AD0 /* SideViewController.m */,
 			);
 			path = RootViewController;
 			sourceTree = "<group>";
@@ -203,6 +213,7 @@
 		961CAD682252F26B00110AD0 /* Moudles */ = {
 			isa = PBXGroup;
 			children = (
+				961CADEF225335FC00110AD0 /* Side */,
 				961CAD692252F27C00110AD0 /* Home */,
 				961CAD6A2252F28500110AD0 /* Mine */,
 				961CAD6B2252F28900110AD0 /* Middle */,
@@ -224,6 +235,8 @@
 			children = (
 				961CAD6C2252F2A300110AD0 /* MineViewController.h */,
 				961CAD6D2252F2A300110AD0 /* MineViewController.m */,
+				961CADF02253382E00110AD0 /* SettingViewController.h */,
+				961CADF12253382E00110AD0 /* SettingViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -257,6 +270,7 @@
 		961CAD772252F30100110AD0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				961CADE22253160100110AD0 /* XWScrollView */,
 				961CAD8D2252FA0F00110AD0 /* MKActionSheetView */,
 				961CAD7B2252FA0E00110AD0 /* MKBigImageView */,
 				961CADBD2252FA1000110AD0 /* MKCell */,
@@ -382,6 +396,10 @@
 				961CADB82252FA1000110AD0 /* UITextView+Category.m */,
 				961CADB92252FA1000110AD0 /* UIView+Category.h */,
 				961CADBA2252FA1000110AD0 /* UIView+Category.m */,
+				961CADE62253166800110AD0 /* UICollectionView+Category.h */,
+				961CADE72253166800110AD0 /* UICollectionView+Category.m */,
+				961CADEC2253352100110AD0 /* UITableView+Category.h */,
+				961CADED2253352100110AD0 /* UITableView+Category.m */,
 				961CADBB2252FA1000110AD0 /* UIViewController+Category.h */,
 				961CADBC2252FA1000110AD0 /* UIViewController+Category.m */,
 			);
@@ -397,6 +415,24 @@
 				961CADC12252FA1000110AD0 /* MKShadowTableViewCell.m */,
 			);
 			path = MKCell;
+			sourceTree = "<group>";
+		};
+		961CADE22253160100110AD0 /* XWScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				961CADE32253162400110AD0 /* XWScrollView.h */,
+				961CADE42253162400110AD0 /* XWScrollView.m */,
+			);
+			path = XWScrollView;
+			sourceTree = "<group>";
+		};
+		961CADEF225335FC00110AD0 /* Side */ = {
+			isa = PBXGroup;
+			children = (
+				961CAD602252F21600110AD0 /* SideViewController.h */,
+				961CAD5D2252F21500110AD0 /* SideViewController.m */,
+			);
+			path = Side;
 			sourceTree = "<group>";
 		};
 		BDDE018EE6F36C7A3B91D61B /* Pods */ = {
@@ -528,6 +564,7 @@
 			files = (
 				961CADD62252FA1000110AD0 /* NSString+Category.m in Sources */,
 				961CADD12252FA1000110AD0 /* MKPopView.m in Sources */,
+				961CADF22253382E00110AD0 /* SettingViewController.m in Sources */,
 				961CADCC2252FA1000110AD0 /* MKActionSheetView.m in Sources */,
 				961CADDD2252FA1000110AD0 /* UITextView+Category.m in Sources */,
 				961CADE02252FA1000110AD0 /* MKShadowCollectionViewCell.m in Sources */,
@@ -535,11 +572,13 @@
 				961CAD472252F1AA00110AD0 /* ViewController.m in Sources */,
 				961CADDA2252FA1000110AD0 /* UIImageView+Category.m in Sources */,
 				961CADC22252FA1000110AD0 /* MKBigImageCollectionViewCell.m in Sources */,
+				961CADE82253166800110AD0 /* UICollectionView+Category.m in Sources */,
 				961CAD662252F21600110AD0 /* BaseNavigationController.m in Sources */,
 				961CAD4D2252F1AA00110AD0 /* MyProject.xcdatamodeld in Sources */,
 				961CADCE2252FA1000110AD0 /* MKPassWordView.m in Sources */,
 				961CAD6E2252F2A300110AD0 /* MineViewController.m in Sources */,
 				961CADC92252FA1000110AD0 /* HttpManager.m in Sources */,
+				961CADEE2253352100110AD0 /* UITableView+Category.m in Sources */,
 				961CAD672252F21600110AD0 /* BaseTabBarViewController.m in Sources */,
 				961CADD82252FA1000110AD0 /* UIButton+Category.m in Sources */,
 				961CAD552252F1B300110AD0 /* main.m in Sources */,
@@ -560,6 +599,7 @@
 				961CADD32252FA1000110AD0 /* NSArray+Category.m in Sources */,
 				961CADDC2252FA1000110AD0 /* UITextField+Category.m in Sources */,
 				961CADDE2252FA1000110AD0 /* UIView+Category.m in Sources */,
+				961CADE52253162400110AD0 /* XWScrollView.m in Sources */,
 				961CAD712252F2A900110AD0 /* MiddleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
