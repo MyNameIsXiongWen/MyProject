@@ -13,17 +13,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MKBigImageCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBT-VB-I97">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FeQ-aJ-oDY">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FeQ-aJ-oDY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                             </imageView>
                         </subviews>
                         <constraints>
@@ -40,7 +40,7 @@
             <constraints>
                 <constraint firstItem="SEy-5g-ep8" firstAttribute="bottom" secondItem="OBT-VB-I97" secondAttribute="bottom" id="5DW-jr-sbq"/>
                 <constraint firstItem="SEy-5g-ep8" firstAttribute="trailing" secondItem="OBT-VB-I97" secondAttribute="trailing" id="Nug-1G-TqP"/>
-                <constraint firstItem="SEy-5g-ep8" firstAttribute="top" secondItem="OBT-VB-I97" secondAttribute="top" constant="20" id="iXX-sK-OVZ"/>
+                <constraint firstItem="SEy-5g-ep8" firstAttribute="top" secondItem="OBT-VB-I97" secondAttribute="top" id="iXX-sK-OVZ"/>
                 <constraint firstItem="OBT-VB-I97" firstAttribute="leading" secondItem="SEy-5g-ep8" secondAttribute="leading" id="kEm-ka-e4b"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>

@@ -8,6 +8,7 @@
 
 #import "SideViewController.h"
 #import "SettingViewController.h"
+#import "FaceRecognitionViewController.h"
 
 @interface SideViewController () <UITabBarDelegate, UITableViewDataSource>
 
@@ -47,7 +48,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.didSelectedIndexPath) {
-        self.didSelectedIndexPath(indexPath);
+        FaceRecognitionViewController *setting = FaceRecognitionViewController.new;
+        self.didSelectedIndexPath(indexPath, setting);
+        [NSNotificationCenter.defaultCenter postNotificationName:@"HideSideVC" object:nil];
     }
 }
 

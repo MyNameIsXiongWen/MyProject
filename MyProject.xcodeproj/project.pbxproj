@@ -52,6 +52,8 @@
 		961CADE82253166800110AD0 /* UICollectionView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADE72253166800110AD0 /* UICollectionView+Category.m */; };
 		961CADEE2253352100110AD0 /* UITableView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADED2253352100110AD0 /* UITableView+Category.m */; };
 		961CADF22253382E00110AD0 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADF12253382E00110AD0 /* SettingViewController.m */; };
+		961CADFA22544DB700110AD0 /* FaceRecognitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADF922544DB700110AD0 /* FaceRecognitionViewController.m */; };
+		961CADFD225457AF00110AD0 /* FacePreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADFC225457AF00110AD0 /* FacePreviewView.m */; };
 		D09C58226C58FC553C498BC7 /* libPods-MyProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 716F5AE204F42E6EDD46EA45 /* libPods-MyProject.a */; };
 /* End PBXBuildFile section */
 
@@ -143,6 +145,10 @@
 		961CADED2253352100110AD0 /* UITableView+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Category.m"; sourceTree = "<group>"; };
 		961CADF02253382E00110AD0 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		961CADF12253382E00110AD0 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		961CADF822544DB700110AD0 /* FaceRecognitionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FaceRecognitionViewController.h; sourceTree = "<group>"; };
+		961CADF922544DB700110AD0 /* FaceRecognitionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FaceRecognitionViewController.m; sourceTree = "<group>"; };
+		961CADFB225457AF00110AD0 /* FacePreviewView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FacePreviewView.h; sourceTree = "<group>"; };
+		961CADFC225457AF00110AD0 /* FacePreviewView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FacePreviewView.m; sourceTree = "<group>"; };
 		A60AAA79F435DD636C29E5C9 /* Pods-MyProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyProject/Pods-MyProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -431,6 +437,10 @@
 			children = (
 				961CAD602252F21600110AD0 /* SideViewController.h */,
 				961CAD5D2252F21500110AD0 /* SideViewController.m */,
+				961CADF822544DB700110AD0 /* FaceRecognitionViewController.h */,
+				961CADF922544DB700110AD0 /* FaceRecognitionViewController.m */,
+				961CADFB225457AF00110AD0 /* FacePreviewView.h */,
+				961CADFC225457AF00110AD0 /* FacePreviewView.m */,
 			);
 			path = Side;
 			sourceTree = "<group>";
@@ -568,6 +578,7 @@
 				961CADCC2252FA1000110AD0 /* MKActionSheetView.m in Sources */,
 				961CADDD2252FA1000110AD0 /* UITextView+Category.m in Sources */,
 				961CADE02252FA1000110AD0 /* MKShadowCollectionViewCell.m in Sources */,
+				961CADFD225457AF00110AD0 /* FacePreviewView.m in Sources */,
 				961CADDF2252FA1000110AD0 /* UIViewController+Category.m in Sources */,
 				961CAD472252F1AA00110AD0 /* ViewController.m in Sources */,
 				961CADDA2252FA1000110AD0 /* UIImageView+Category.m in Sources */,
@@ -595,6 +606,7 @@
 				961CADD52252FA1000110AD0 /* NSObject+Category.m in Sources */,
 				961CADD72252FA1000110AD0 /* MKPullDownView.m in Sources */,
 				961CADC82252FA1000110AD0 /* MKNavView.m in Sources */,
+				961CADFA22544DB700110AD0 /* FaceRecognitionViewController.m in Sources */,
 				961CADCA2252FA1000110AD0 /* MKActionSheetTitleTableViewCell.m in Sources */,
 				961CADD32252FA1000110AD0 /* NSArray+Category.m in Sources */,
 				961CADDC2252FA1000110AD0 /* UITextField+Category.m in Sources */,

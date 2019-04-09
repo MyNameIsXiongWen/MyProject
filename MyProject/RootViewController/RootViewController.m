@@ -7,7 +7,6 @@
 //
 
 #import "RootViewController.h"
-#import "SettingViewController.h"
 
 @interface RootViewController () <UIGestureRecognizerDelegate>
 
@@ -50,10 +49,9 @@
         self.alphaView.hidden = YES;
         [self.view addSubview:self.alphaView];
         
-        side.didSelectedIndexPath = ^(NSIndexPath * _Nonnull indexPath) {
-            SettingViewController *setting = SettingViewController.new;
+        side.didSelectedIndexPath = ^(NSIndexPath * _Nonnull indexPath, UIViewController *vc) {
             UINavigationController *nav = (UINavigationController *)self.tabbarVC.selectedViewController;
-            [nav pushViewController:setting animated:YES];
+            [nav pushViewController:vc animated:YES];
         };
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapSideVC)];

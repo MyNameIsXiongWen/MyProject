@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithFrame:(CGRect)frame ImgArray:(NSMutableArray *)imgArray CurrentIndex:(NSInteger)currentIndex;
 @property (nonatomic, copy) void (^ selectItemBlock)(NSInteger index);
+@property (nonatomic, strong) NSMutableArray *imageArray;
 
 @end
 

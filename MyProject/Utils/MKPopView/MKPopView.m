@@ -25,6 +25,8 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self == [super initWithFrame:frame]) {
         self.backgroundColor = UIColor.whiteColor;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHiden:) name:UIKeyboardWillHideNotification object:nil];
     }
     return self;
 }
@@ -79,6 +81,8 @@
 }
 
 - (void)dismiss {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     [UIView animateWithDuration:0.25 animations:^{
         self.backgroundView.alpha = 0;
         if (self.popOrPush) {
@@ -116,6 +120,22 @@
         _navView.backgroundColor = UIColor.clearColor;
     }
     return _navView;
+}
+
+- (void)keyboardWasShown:(NSNotification *)notification {
+    CGRect frame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    [UIView animateWithDuration:0.25
+                     animations:^{
+                         if (self.frame.origin.y > 0) {
+                             self.transform = CGAffineTransformTranslate(self.transform, 0, -frame.size.height/2);
+                         }
+                     }
+                     completion:^(BOOL finished) {
+                     }];
+}
+
+- (void)keyboardWillBeHiden:(NSNotification *)notification {
+    self.transform = CGAffineTransformIdentity;
 }
 
 @end

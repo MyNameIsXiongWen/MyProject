@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SideViewController : UIViewController
 
-@property (nonatomic, copy) void (^ didSelectedIndexPath)(NSIndexPath *indexPath);
+@property (nonatomic, copy) void (^ didSelectedIndexPath)(NSIndexPath *indexPath, UIViewController *vc);
 
 @end
 

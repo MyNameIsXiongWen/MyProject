@@ -13,7 +13,7 @@ static NSString *const ImageCellIdentifier = @"imageCellIdentifier";
 @interface XWScrollView () <UIScrollViewDelegate, UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) NSMutableArray *imageArray;
+@property (nonatomic, strong) UIPageControl *pageControl;
 
 @end
 
@@ -32,11 +32,20 @@ static NSString *const ImageCellIdentifier = @"imageCellIdentifier";
         [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self);
         }];
+        [self.pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.mas_equalTo(0);
+            make.height.mas_equalTo(50);
+        }];
         [imgArray insertObject:imgArray.lastObject atIndex:0];
         [imgArray addObject:imgArray[1]];
         self.imageArray = imgArray;
         [self.collectionView reloadData];
-        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:currentIndex+1 inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:currentIndex+1 inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+        });
+        /// 图片总数
+        self.pageControl.numberOfPages = self.imageArray.count - 2;
+        self.pageControl.currentPage = currentIndex;
     }
     return self;
 }
@@ -60,9 +69,14 @@ static NSString *const ImageCellIdentifier = @"imageCellIdentifier";
     int index = scrollView.contentOffset.x/kScreenW;
     if (index == 0) {
         [scrollView setContentOffset:CGPointMake((self.imageArray.count - 2) * kScreenW, 0)];
+        self.pageControl.currentPage = self.imageArray.count - 3;
     }
     else if (index == self.imageArray.count - 1) {
         [scrollView setContentOffset:CGPointMake(kScreenW, 0)];
+        self.pageControl.currentPage = 0;
+    }
+    else {
+        self.pageControl.currentPage = index-1;
     }
 }
 
@@ -85,6 +99,18 @@ static NSString *const ImageCellIdentifier = @"imageCellIdentifier";
         [self addSubview:_collectionView];
     }
     return _collectionView;
+}
+
+-(UIPageControl *)pageControl {
+    if (!_pageControl) {
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectZero];
+        _pageControl.enabled = NO;
+        _pageControl.pageIndicatorTintColor = [UIColor grayColor];
+        _pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
+        [self addSubview:_pageControl];
+    }
+    
+    return _pageControl;
 }
 
 @end
