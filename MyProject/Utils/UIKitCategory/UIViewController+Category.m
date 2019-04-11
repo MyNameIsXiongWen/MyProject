@@ -8,12 +8,29 @@
 
 #import "UIViewController+Category.h"
 #import <objc/runtime.h>
-//#import <UMMobClick/MobClick.h>
 
 @implementation UIViewController (Category)
 
-- (void)um_viewDidLoad {
-    [self um_viewDidLoad];
+//这里调用自身并不会产生循环调用的死循环，因为在调用时，这个方法已被替换成系统的viewWillAppear方法了。
+// 重写后的viewWillAppear方法
+- (void)xw_viewWillAppear:(BOOL)animated {
+    [self xw_viewWillAppear:animated];
+}
+
+// 重写后的viewWillDisappear方法
+-(void)xw_viewWillDisappear:(BOOL)animated {
+    [self xw_viewWillDisappear:animated];
+}
+
+
+// 重写后的viewDidDisappear方法
+- (void)xw_viewDidDisappear:(BOOL)animated {
+    [self xw_viewDidDisappear:animated];
+}
+
+// 重写后的viewDidLoad方法
+- (void)xw_viewDidLoad {
+    [self xw_viewDidLoad];
     UIButton *leftBtn  = [UIButton buttonWithType:UIButtonTypeCustom];
     leftBtn.bounds = CGRectMake(0, 0, 70, 40);
     [leftBtn setImage:UIImageMake(@"nav_back") forState:UIControlStateNormal];
@@ -65,10 +82,11 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        [self method_exchange:@selector(viewDidLoad) with:@selector(um_viewDidLoad)];
-        [self method_exchange:@selector(viewWillAppear:)with:@selector(um_viewWillAppear:)];
-        [self method_exchange:@selector(viewWillDisappear:)with:@selector(um_viewWillDisappear:)];
-        [self method_exchange:@selector(viewDidDisappear:) with:@selector(um_viewDidDisappear:)];
+        [self method_exchange:@selector(viewDidLoad) with:@selector(xw_viewDidLoad)];
+        [self method_exchange:@selector(viewWillAppear:)with:@selector(xw_viewWillAppear:)];
+        [self method_exchange:@selector(viewWillDisappear:)with:@selector(xw_viewWillDisappear:)];
+        [self method_exchange:@selector(viewDidDisappear:) with:@selector(xw_viewDidDisappear:)];
+        [self method_exchange:@selector(presentViewController:animated:completion:) with:@selector(xw_presentViewController:animated:completion:)];
     });
 }
 
@@ -83,36 +101,27 @@
     SEL originalSelector = oldMethod;
     SEL swizzledSelector = newMethod;
     
-    Method originalMethod =class_getInstanceMethod(class, originalSelector);
-    Method swizzledMethod =class_getInstanceMethod(class, swizzledSelector);
+    Method originalMethod = class_getInstanceMethod(class, originalSelector);
+    Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
     
-    BOOL success =class_addMethod(class, originalSelector,method_getImplementation(swizzledMethod),method_getTypeEncoding(swizzledMethod));
+    BOOL success = class_addMethod(class, originalSelector,method_getImplementation(swizzledMethod),method_getTypeEncoding(swizzledMethod));
     if (success) {
         class_replaceMethod(class, swizzledSelector,method_getImplementation(originalMethod),method_getTypeEncoding(originalMethod));
-    } else {
+    }
+    else {
         method_exchangeImplementations(originalMethod, swizzledMethod);
     }
 }
 
-/**
- 重写后的viewWillAppear方法
- */
-- (void)um_viewWillAppear:(BOOL)animated {
-    //这里调用自身并不会产生循环调用的死循环，因为在调用时，这个方法已被替换成系统的viewWillAppear方法了。
-    [self um_viewWillAppear:animated];
-//    [MobClick beginLogPageView:NSStringFromClass([self class])];
-}
-
-/**
- 重写后的viewWillDisappear方法
- */
--(void)um_viewWillDisappear:(BOOL)animated {
-    [self um_viewWillDisappear:animated];
-//    [MobClick endLogPageView:NSStringFromClass([self class])];
-}
-
-- (void)um_viewDidDisappear:(BOOL)animated {
-    [self um_viewDidDisappear:animated];
+// 重写后的presentViewController方法
+- (void)xw_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
+    if ([viewControllerToPresent isKindOfClass:UIAlertController.class]) {
+        UIAlertController *alertController = (UIAlertController *)viewControllerToPresent;
+        if (alertController.title == nil && alertController.message == nil) {
+            return;
+        }
+    }
+    [self xw_presentViewController:viewControllerToPresent animated:flag completion:completion];
 }
 
 @end

@@ -60,7 +60,9 @@ static NSString *const ImageCellIdentifier = @"imageCellIdentifier";
     MKBigImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ImageCellIdentifier forIndexPath:indexPath];
     cell.imgView.image = UIImageMake(self.imageArray[indexPath.row]);
     cell.singltTapBlock = ^{
-        
+        if (self.selectItemBlock) {
+            self.selectItemBlock(indexPath.row);
+        }
     };
     return cell;
 }

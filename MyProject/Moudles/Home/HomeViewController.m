@@ -23,10 +23,33 @@
     self.leftNavBtn.bounds = CGRectMake(0, 0, 40, 40);
     [self.leftNavBtn setImage:UIImageMake(@"avatar") forState:0];
     XWScrollView *scroll = [[XWScrollView alloc] initWithFrame:CGRectMake(0, 64, kScreenW, 200) ImgArray:@[@"1",@"2",@"3",@"4",@"5"].mutableCopy CurrentIndex:0];
+    WEAKSELF
     scroll.selectItemBlock = ^(NSInteger index) {
-        NSLog(@"======%d",index);
+        NSLog(@"======%ld",index);
+        [weakSelf changeAppIconName:@"bigicon"];
     };
     [self.view addSubview:scroll];
+}
+
+- (void)changeAppIconName:(nullable NSString *)name {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if(![UIApplication sharedApplication].supportsAlternateIcons) {
+            return;
+        }
+        NSString *iconName = [[UIApplication sharedApplication] alternateIconName];
+        if (iconName) {
+            [[UIApplication sharedApplication] setAlternateIconName:nil completionHandler:^(NSError * _Nullable error) {
+                
+            }];
+        }
+        else {
+            [[UIApplication sharedApplication] setAlternateIconName:name completionHandler:^(NSError * _Nullable error) {
+                if (error) {
+                    NSLog(@"---报错啦----:%@",error.description);
+                }
+            }];
+        }
+    });
 }
 
 - (void)leftNavBtnAction:(UIButton *)sender {
