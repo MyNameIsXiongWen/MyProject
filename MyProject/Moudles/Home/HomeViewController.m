@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "XWScrollView.h"
 
 @interface HomeViewController ()
 
@@ -18,15 +19,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = UIColor.whiteColor;
-    [self.leftNavBtn setImage:UIImageMake(@"") forState:0];
-    UIView *vvv = [[UIView alloc] initWithFrame:CGRectMake(100, 200, 100, 50)];
-    vvv.backgroundColor = UIColor.orangeColor;
-    vvv.userInteractionEnabled = YES;
-    [self.view addSubview:vvv];
-    [vvv addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapvvv)]];
+    self.leftNavBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10);
+    self.leftNavBtn.bounds = CGRectMake(0, 0, 40, 40);
+    [self.leftNavBtn setImage:UIImageMake(@"avatar") forState:0];
+    XWScrollView *scroll = [[XWScrollView alloc] initWithFrame:CGRectMake(0, 64, kScreenW, 200) ImgArray:@[@"1",@"2",@"3",@"4",@"5"].mutableCopy CurrentIndex:0];
+    scroll.selectItemBlock = ^(NSInteger index) {
+        NSLog(@"======%d",index);
+    };
+    [self.view addSubview:scroll];
 }
 
-- (void)tapvvv {
+- (void)leftNavBtnAction:(UIButton *)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowSideVC" object:nil];
 }
 

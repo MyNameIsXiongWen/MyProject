@@ -102,9 +102,20 @@
     if (self.panStartOriginX >= 40 && rootView.frame.origin.x == 0) {
         return;
     }
-    CGFloat translationX = [gesture translationInView:rootView].x;
     CGFloat rootViewX = rootView.frame.origin.x;
     CGFloat sideViewX = sideView.frame.origin.x;
+    CGFloat translationX = [gesture translationInView:rootView].x;
+    if (translationX < 0) {
+        if (gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled) {
+            if (rootViewX >= [self getDistance]/2) {
+                [self showSide];
+            }
+            else {
+                [self hideSide:YES];
+            }
+        }
+        return;
+    }
     
     if (rootViewX + translationX < kScreenW-self.rightSpace) {
         rootViewX = rootViewX + translationX;

@@ -54,6 +54,7 @@
 		961CADF22253382E00110AD0 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADF12253382E00110AD0 /* SettingViewController.m */; };
 		961CADFA22544DB700110AD0 /* FaceRecognitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADF922544DB700110AD0 /* FaceRecognitionViewController.m */; };
 		961CADFD225457AF00110AD0 /* FacePreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADFC225457AF00110AD0 /* FacePreviewView.m */; };
+		96236EB8225C49CA000EB49E /* XWChartsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96236EB7225C49CA000EB49E /* XWChartsView.m */; };
 		D09C58226C58FC553C498BC7 /* libPods-MyProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 716F5AE204F42E6EDD46EA45 /* libPods-MyProject.a */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +150,8 @@
 		961CADF922544DB700110AD0 /* FaceRecognitionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FaceRecognitionViewController.m; sourceTree = "<group>"; };
 		961CADFB225457AF00110AD0 /* FacePreviewView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FacePreviewView.h; sourceTree = "<group>"; };
 		961CADFC225457AF00110AD0 /* FacePreviewView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FacePreviewView.m; sourceTree = "<group>"; };
+		96236EB6225C49CA000EB49E /* XWChartsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XWChartsView.h; sourceTree = "<group>"; };
+		96236EB7225C49CA000EB49E /* XWChartsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XWChartsView.m; sourceTree = "<group>"; };
 		A60AAA79F435DD636C29E5C9 /* Pods-MyProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyProject/Pods-MyProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -286,6 +289,8 @@
 				961CADA92252FA0F00110AD0 /* MKPulldownView */,
 				961CADA02252FA0F00110AD0 /* NSCategory */,
 				961CADAC2252FA1000110AD0 /* UIKitCategory */,
+				96236EB6225C49CA000EB49E /* XWChartsView.h */,
+				96236EB7225C49CA000EB49E /* XWChartsView.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -606,6 +611,7 @@
 				961CADD52252FA1000110AD0 /* NSObject+Category.m in Sources */,
 				961CADD72252FA1000110AD0 /* MKPullDownView.m in Sources */,
 				961CADC82252FA1000110AD0 /* MKNavView.m in Sources */,
+				96236EB8225C49CA000EB49E /* XWChartsView.m in Sources */,
 				961CADFA22544DB700110AD0 /* FaceRecognitionViewController.m in Sources */,
 				961CADCA2252FA1000110AD0 /* MKActionSheetTitleTableViewCell.m in Sources */,
 				961CADD32252FA1000110AD0 /* NSArray+Category.m in Sources */,
