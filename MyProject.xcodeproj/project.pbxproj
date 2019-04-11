@@ -55,7 +55,7 @@
 		961CADFA22544DB700110AD0 /* FaceRecognitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADF922544DB700110AD0 /* FaceRecognitionViewController.m */; };
 		961CADFD225457AF00110AD0 /* FacePreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADFC225457AF00110AD0 /* FacePreviewView.m */; };
 		96236EB8225C49CA000EB49E /* XWChartsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96236EB7225C49CA000EB49E /* XWChartsView.m */; };
-		96236EBD225F3D0E000EB49E /* bigicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 96236EBC225F3D0E000EB49E /* bigicon.png */; };
+		96236EC2225F433D000EB49E /* bigicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 96236EC1225F433D000EB49E /* bigicon.png */; };
 		D09C58226C58FC553C498BC7 /* libPods-MyProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 716F5AE204F42E6EDD46EA45 /* libPods-MyProject.a */; };
 /* End PBXBuildFile section */
 
@@ -153,7 +153,7 @@
 		961CADFC225457AF00110AD0 /* FacePreviewView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FacePreviewView.m; sourceTree = "<group>"; };
 		96236EB6225C49CA000EB49E /* XWChartsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XWChartsView.h; sourceTree = "<group>"; };
 		96236EB7225C49CA000EB49E /* XWChartsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XWChartsView.m; sourceTree = "<group>"; };
-		96236EBC225F3D0E000EB49E /* bigicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigicon.png; sourceTree = "<group>"; };
+		96236EC1225F433D000EB49E /* bigicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigicon.png; sourceTree = "<group>"; };
 		A60AAA79F435DD636C29E5C9 /* Pods-MyProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyProject/Pods-MyProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -300,7 +300,7 @@
 		961CAD782252F30F00110AD0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				96236EB9225F3CB9000EB49E /* bigicon */,
+				96236EC1225F433D000EB49E /* bigicon.png */,
 				961CAD452252F1AA00110AD0 /* ViewController.h */,
 				961CAD462252F1AA00110AD0 /* ViewController.m */,
 				961CAD482252F1AA00110AD0 /* Main.storyboard */,
@@ -453,14 +453,6 @@
 			path = Side;
 			sourceTree = "<group>";
 		};
-		96236EB9225F3CB9000EB49E /* bigicon */ = {
-			isa = PBXGroup;
-			children = (
-				96236EBC225F3D0E000EB49E /* bigicon.png */,
-			);
-			path = bigicon;
-			sourceTree = "<group>";
-		};
 		BDDE018EE6F36C7A3B91D61B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,10 +521,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96236EC2225F433D000EB49E /* bigicon.png in Resources */,
 				961CAD522252F1B300110AD0 /* LaunchScreen.storyboard in Resources */,
 				961CAD4F2252F1B300110AD0 /* Assets.xcassets in Resources */,
 				961CADCB2252FA1000110AD0 /* MKActionSheetTitleTableViewCell.xib in Resources */,
-				96236EBD225F3D0E000EB49E /* bigicon.png in Resources */,
 				961CADC62252FA1000110AD0 /* MKThumbImageCollectionViewCell.xib in Resources */,
 				961CADC32252FA1000110AD0 /* MKBigImageCollectionViewCell.xib in Resources */,
 				961CAD4A2252F1AA00110AD0 /* Main.storyboard in Resources */,

@@ -32,6 +32,10 @@
 }
 
 - (void)changeAppIconName:(nullable NSString *)name {
+    /*⚠️注意
+     如果是更换iPad图标，要把info.plist的 Icon files (iOS 5) 改成 CFBundleIcons~ipad
+     并且要修改的图片不能放assets里面
+     */
     dispatch_async(dispatch_get_main_queue(), ^{
         if(![UIApplication sharedApplication].supportsAlternateIcons) {
             return;
