@@ -48,6 +48,26 @@ static CGFloat const kSplitY = 40;//纵向间隔
     return self;
 }
 
+#pragma mark ------------setter-------------
+- (void)setXAxisData:(NSArray *)xAxisData {
+    _xAxisData = xAxisData;
+    self.kSplitX = (CGRectGetWidth(self.bounds)-60)/xAxisData.count;
+}
+
+- (void)setChartsData:(NSArray *)chartsData {
+    _chartsData = chartsData;
+    NSNumber *number = [chartsData valueForKeyPath:@"@max.floatValue"];
+    NSInteger maxInteger = ceil(number.doubleValue);
+    NSInteger perInteger = ceil(maxInteger/(CGFloat)(self.ySplitNumber-1));
+    [self.yAxisData removeAllObjects];
+    for (NSInteger i=self.ySplitNumber-1; i>=0; i--) {
+        [self.yAxisData addObject:[NSString stringWithFormat:@"%ld",perInteger * i]];
+    }
+    [self drawLabel];
+    [self drawCurve];
+}
+
+#pragma mark ------------methods-------------
 - (void)drawLabel {
     for (UIView *vvv in self.subviews) {
         [vvv removeFromSuperview];
@@ -99,24 +119,7 @@ static CGFloat const kSplitY = 40;//纵向间隔
     [self.shapeLayer addAnimation:animation forKey:nil];
 }
 
-- (void)setXAxisData:(NSArray *)xAxisData {
-    _xAxisData = xAxisData;
-    self.kSplitX = (CGRectGetWidth(self.bounds)-60)/xAxisData.count;
-}
-
-- (void)setChartsData:(NSArray *)chartsData {
-    _chartsData = chartsData;
-    NSNumber *number = [chartsData valueForKeyPath:@"@max.floatValue"];
-    NSInteger maxInteger = ceil(number.doubleValue);
-    NSInteger perInteger = ceil(maxInteger/(CGFloat)(self.ySplitNumber-1));
-    [self.yAxisData removeAllObjects];
-    for (NSInteger i=self.ySplitNumber-1; i>=0; i--) {
-        [self.yAxisData addObject:[NSString stringWithFormat:@"%ld",perInteger * i]];
-    }
-    [self drawLabel];
-    [self drawCurve];
-}
-
+#pragma mark ------------懒加载-------------
 - (NSMutableArray *)yAxisData {
     if (!_yAxisData) {
         _yAxisData = NSMutableArray.array;

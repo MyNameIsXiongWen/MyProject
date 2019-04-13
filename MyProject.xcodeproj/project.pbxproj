@@ -56,6 +56,7 @@
 		961CADFD225457AF00110AD0 /* FacePreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADFC225457AF00110AD0 /* FacePreviewView.m */; };
 		96236EB8225C49CA000EB49E /* XWChartsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96236EB7225C49CA000EB49E /* XWChartsView.m */; };
 		96236EC2225F433D000EB49E /* bigicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 96236EC1225F433D000EB49E /* bigicon.png */; };
+		963533DF2261CAEE00F4DA40 /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 963533DE2261CAEE00F4DA40 /* UIImage+Category.m */; };
 		D09C58226C58FC553C498BC7 /* libPods-MyProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 716F5AE204F42E6EDD46EA45 /* libPods-MyProject.a */; };
 /* End PBXBuildFile section */
 
@@ -154,6 +155,8 @@
 		96236EB6225C49CA000EB49E /* XWChartsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XWChartsView.h; sourceTree = "<group>"; };
 		96236EB7225C49CA000EB49E /* XWChartsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XWChartsView.m; sourceTree = "<group>"; };
 		96236EC1225F433D000EB49E /* bigicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigicon.png; sourceTree = "<group>"; };
+		963533DD2261CAEE00F4DA40 /* UIImage+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Category.h"; sourceTree = "<group>"; };
+		963533DE2261CAEE00F4DA40 /* UIImage+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
 		A60AAA79F435DD636C29E5C9 /* Pods-MyProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyProject/Pods-MyProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -281,6 +284,7 @@
 		961CAD772252F30100110AD0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				96236EC3225F45A0000EB49E /* XWChartsView */,
 				961CADE22253160100110AD0 /* XWScrollView */,
 				961CAD8D2252FA0F00110AD0 /* MKActionSheetView */,
 				961CAD7B2252FA0E00110AD0 /* MKBigImageView */,
@@ -291,8 +295,6 @@
 				961CADA92252FA0F00110AD0 /* MKPulldownView */,
 				961CADA02252FA0F00110AD0 /* NSCategory */,
 				961CADAC2252FA1000110AD0 /* UIKitCategory */,
-				96236EB6225C49CA000EB49E /* XWChartsView.h */,
-				96236EB7225C49CA000EB49E /* XWChartsView.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -380,6 +382,8 @@
 				961CADA62252FA0F00110AD0 /* NSObject+Category.m */,
 				961CADA72252FA0F00110AD0 /* NSString+Category.h */,
 				961CADA82252FA0F00110AD0 /* NSString+Category.m */,
+				963533DD2261CAEE00F4DA40 /* UIImage+Category.h */,
+				963533DE2261CAEE00F4DA40 /* UIImage+Category.m */,
 			);
 			path = NSCategory;
 			sourceTree = "<group>";
@@ -451,6 +455,15 @@
 				961CADFC225457AF00110AD0 /* FacePreviewView.m */,
 			);
 			path = Side;
+			sourceTree = "<group>";
+		};
+		96236EC3225F45A0000EB49E /* XWChartsView */ = {
+			isa = PBXGroup;
+			children = (
+				96236EB6225C49CA000EB49E /* XWChartsView.h */,
+				96236EB7225C49CA000EB49E /* XWChartsView.m */,
+			);
+			path = XWChartsView;
 			sourceTree = "<group>";
 		};
 		BDDE018EE6F36C7A3B91D61B /* Pods */ = {
@@ -616,6 +629,7 @@
 				961CADD72252FA1000110AD0 /* MKPullDownView.m in Sources */,
 				961CADC82252FA1000110AD0 /* MKNavView.m in Sources */,
 				96236EB8225C49CA000EB49E /* XWChartsView.m in Sources */,
+				963533DF2261CAEE00F4DA40 /* UIImage+Category.m in Sources */,
 				961CADFA22544DB700110AD0 /* FaceRecognitionViewController.m in Sources */,
 				961CADCA2252FA1000110AD0 /* MKActionSheetTitleTableViewCell.m in Sources */,
 				961CADD32252FA1000110AD0 /* NSArray+Category.m in Sources */,

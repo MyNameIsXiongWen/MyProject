@@ -17,9 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIView *vvv = [[UIView alloc] initWithFrame:CGRectMake(100, 200, 100, 50)];
-    vvv.backgroundColor = UIColor.orangeColor;
-    [self.view addSubview:vvv];
+    UIImageView *imgView = [UIImageView initWithFrame:CGRectMake(0, 64, kScreenW, 200) ImageUrl:@"" Image:self.image ContentMode:UIViewContentModeScaleAspectFill];
+    [self.view addSubview:imgView];
+    self.view.backgroundColor = [self.image getColorByImage];
 }
 
 /*

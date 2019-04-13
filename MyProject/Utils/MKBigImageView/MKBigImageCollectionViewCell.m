@@ -17,19 +17,19 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.scrView.maximumZoomScale = 2.0;
-    self.scrView.minimumZoomScale = 1.0;
-    self.scrView.delegate = self;
-    self.scrView.scrollEnabled = YES;
-    UITapGestureRecognizer *singletap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
-    singletap.numberOfTapsRequired = 1;
-    [self.scrView addGestureRecognizer:singletap];
-    [self.imgView addGestureRecognizer:singletap];
-    
-    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
-    doubleTap.numberOfTapsRequired = 2;
-    [self.imgView addGestureRecognizer:doubleTap];
-    [singletap requireGestureRecognizerToFail:doubleTap];
+//    self.scrView.maximumZoomScale = 2.0;
+//    self.scrView.minimumZoomScale = 1.0;
+//    self.scrView.delegate = self;
+//    self.scrView.scrollEnabled = YES;
+//    UITapGestureRecognizer *singletap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
+//    singletap.numberOfTapsRequired = 1;
+//    [self.scrView addGestureRecognizer:singletap];
+//    [self.imgView addGestureRecognizer:singletap];
+//
+//    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
+//    doubleTap.numberOfTapsRequired = 2;
+//    [self.imgView addGestureRecognizer:doubleTap];
+//    [singletap requireGestureRecognizerToFail:doubleTap];
     self.contentView.backgroundColor = UIColor.clearColor;
 }
 

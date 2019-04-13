@@ -14,6 +14,9 @@ static NSString *const ImageCellIdentifier = @"imageCellIdentifier";
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UIPageControl *pageControl;
+@property (nonatomic, strong) NSMutableArray *imageArray;
+@property (nonatomic, strong) dispatch_source_t timer;
+@property (nonatomic, assign) BOOL timerActivity;
 
 @end
 
@@ -46,6 +49,22 @@ static NSString *const ImageCellIdentifier = @"imageCellIdentifier";
         /// 图片总数
         self.pageControl.numberOfPages = self.imageArray.count - 2;
         self.pageControl.currentPage = currentIndex;
+        self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+        dispatch_source_set_timer(self.timer, dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), 2.0 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+        WEAKSELF
+        dispatch_source_set_event_handler(self.timer, ^{
+            int index = self.collectionView.contentOffset.x/kScreenW;
+            [weakSelf.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:index+1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
+            if (index == self.imageArray.count - 2) {
+                [self.collectionView setContentOffset:CGPointMake(0, 0)];
+                self.pageControl.currentPage = 0;
+            }
+            else {
+                self.pageControl.currentPage = index;
+            }
+        });
+        dispatch_resume(self.timer);
+        self.timerActivity = YES;
     }
     return self;
 }
@@ -67,7 +86,21 @@ static NSString *const ImageCellIdentifier = @"imageCellIdentifier";
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.selectItemBlock) {
+        self.selectItemBlock(indexPath.row);
+    }
+}
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+    if (self.timerActivity) {
+        self.timerActivity = NO;
+        dispatch_suspend(self.timer);
+    }
+}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSLog(@"decelerate========%f",scrollView.contentOffset.x);
     int index = scrollView.contentOffset.x/kScreenW;
     if (index == 0) {
         [scrollView setContentOffset:CGPointMake((self.imageArray.count - 2) * kScreenW, 0)];
@@ -80,11 +113,11 @@ static NSString *const ImageCellIdentifier = @"imageCellIdentifier";
     else {
         self.pageControl.currentPage = index-1;
     }
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.selectItemBlock) {
-        self.selectItemBlock(indexPath.row);
+    if (!self.timerActivity) {
+        self.timerActivity = YES;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_resume(self.timer);
+        });
     }
 }
 

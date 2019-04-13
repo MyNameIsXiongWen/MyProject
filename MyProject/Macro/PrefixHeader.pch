@@ -35,6 +35,7 @@
 #import "NSObject+Category.h"
 #import "NSString+Category.h"
 #import "NSDictionary+Category.h"
+#import "UIImage+Category.h"
 
 #define kScreenW [UIScreen mainScreen].bounds.size.width
 #define kScreenH [UIScreen mainScreen].bounds.size.height
