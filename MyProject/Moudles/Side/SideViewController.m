@@ -9,7 +9,7 @@
 #import "SideViewController.h"
 #import "FaceRecognitionViewController.h"
 
-@interface SideViewController () <UITabBarDelegate, UITableViewDataSource>
+@interface SideViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIView *headerView;
@@ -77,7 +77,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [UITableView initWithFrame:CGRectMake(0, -20, 300, kScreenH) Style:UITableViewStylePlain Object:self];
+        _tableView = [UITableView initWithFrame:CGRectMake(0, 0, 300, kScreenH) Style:UITableViewStylePlain Object:self];
         [_tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"cell"];
         _tableView.tableHeaderView = self.headerView;
     }
@@ -94,7 +94,7 @@
 
 - (UIImageView *)headerBgView {
     if (!_headerBgView) {
-        _headerBgView = [UIImageView initWithFrame:self.headerView.bounds ImageUrl:@"" Image:UIImageMake(@"2") ContentMode:UIViewContentModeScaleAspectFill];
+        _headerBgView = [UIImageView initWithFrame:self.headerView.bounds ImageUrl:@"" Image:UIImageMake(@"登陆页") ContentMode:UIViewContentModeScaleAspectFill];
     }
     return _headerBgView;
 }

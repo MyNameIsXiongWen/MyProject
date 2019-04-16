@@ -8,12 +8,17 @@
 
 #import "UIViewController+Category.h"
 #import <objc/runtime.h>
+#import "XWPushAnimation.h"
+#import "XWPopAnimation.h"
 
 @implementation UIViewController (Category)
+
+@dynamic percentDrivenTransition;
 
 //这里调用自身并不会产生循环调用的死循环，因为在调用时，这个方法已被替换成系统的viewWillAppear方法了。
 // 重写后的viewWillAppear方法
 - (void)xw_viewWillAppear:(BOOL)animated {
+    self.navigationController.delegate = self;
     [self xw_viewWillAppear:animated];
 }
 
@@ -21,7 +26,6 @@
 -(void)xw_viewWillDisappear:(BOOL)animated {
     [self xw_viewWillDisappear:animated];
 }
-
 
 // 重写后的viewDidDisappear方法
 - (void)xw_viewDidDisappear:(BOOL)animated {
@@ -48,6 +52,10 @@
     
     self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc] initWithCustomView:self.leftNavBtn];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.rightNavBtn];
+    
+    UIScreenEdgePanGestureRecognizer *screenPan = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(edgPanGesture:)];
+    screenPan.edges = UIRectEdgeLeft;
+    [self.view addGestureRecognizer:screenPan];
 }
 
 - (UIButton *)leftNavBtn{
@@ -113,7 +121,7 @@
     }
 }
 
-// 重写后的presentViewController方法
+// 重写后的presentViewController方法(修改app icon时用)
 - (void)xw_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
     if ([viewControllerToPresent isKindOfClass:UIAlertController.class]) {
         UIAlertController *alertController = (UIAlertController *)viewControllerToPresent;
@@ -122,6 +130,53 @@
         }
     }
     [self xw_presentViewController:viewControllerToPresent animated:flag completion:completion];
+}
+
+// 自定义转场动画
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
+    if (operation == UINavigationControllerOperationPush) {
+        return [XWPushAnimation new];
+    }
+    else if (operation == UINavigationControllerOperationPop) {
+        return [XWPopAnimation new];
+    }
+    return nil;
+}
+
+// 手势返回
+- (void)edgPanGesture:(UIScreenEdgePanGestureRecognizer *)edgPan {
+    CGFloat progress = [edgPan translationInView:self.view].x/kScreenW;
+    if (edgPan.state == UIGestureRecognizerStateBegan) {
+        self.percentDrivenTransition = [[UIPercentDrivenInteractiveTransition alloc] init];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else if (edgPan.state == UIGestureRecognizerStateChanged) {
+        [self.percentDrivenTransition updateInteractiveTransition:progress];
+    }
+    else if (edgPan.state == UIGestureRecognizerStateCancelled || edgPan.state == UIGestureRecognizerStateEnded) {
+        if (progress > 0.5) {
+            [self.percentDrivenTransition finishInteractiveTransition];
+        }
+        else {
+            [self.percentDrivenTransition cancelInteractiveTransition];
+        }
+        self.percentDrivenTransition = nil;
+    }
+}
+
+- (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController {
+    if ([animationController isKindOfClass:XWPopAnimation.class]) {
+        return self.percentDrivenTransition ?: nil;
+    }
+    return nil;
+}
+
+- (UIPercentDrivenInteractiveTransition *)percentDrivenTransition {
+    return objc_getAssociatedObject(self, @"percentDrivenTransitionObject");
+}
+
+- (void)setPercentDrivenTransition:(UIPercentDrivenInteractiveTransition *)percentDrivenTransition {
+    objc_setAssociatedObject(self, @"percentDrivenTransitionObject", percentDrivenTransition, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end

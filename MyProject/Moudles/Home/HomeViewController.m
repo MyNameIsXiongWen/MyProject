@@ -9,6 +9,8 @@
 #import "HomeViewController.h"
 #import "XWScrollView.h"
 #import "SettingViewController.h"
+#import "HomeTableViewCell.h"
+#import "HomeDetailView.h"
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -22,16 +24,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = UIColor.whiteColor;
-    self.leftNavBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10);
+    self.leftNavBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
     self.leftNavBtn.bounds = CGRectMake(0, 0, 40, 40);
     [self.leftNavBtn setImage:UIImageMake(@"avatar") forState:0];
-    XWScrollView *scroll = [[XWScrollView alloc] initWithFrame:CGRectMake(0, 64, kScreenW, 200) ImgArray:@[@"1",@"2",@"3",@"4",@"5"].mutableCopy CurrentIndex:0];
-    WEAKSELF
-    scroll.selectItemBlock = ^(NSInteger index) {
-        NSLog(@"======%ld",index);
-        [weakSelf changeAppIconName:@"bigicon"];
-    };
-    [self.view addSubview:scroll];
     [self.view addSubview:self.tableView];
 }
 
@@ -71,18 +66,29 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeCell"];
+    HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeCell"];
     NSString *imgUrl = [NSString stringWithFormat:@"%ld",indexPath.row+1];
-    cell.imageView.image = UIImageMake(imgUrl);
-    cell.textLabel.text = [NSString stringWithFormat:@"第%ld行",indexPath.row+1];
+    cell.imgView.image = UIImageMake(imgUrl);
+    cell.name.text = [NSString stringWithFormat:@"第%ld行",indexPath.row+1];
+    cell.desc.text = @"这是个啥啊  这也太好吃了吧";
+    cell.price.text = [NSString stringWithFormat:@"¥ %u",arc4random()%100];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = (UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    SettingViewController *settingVC = SettingViewController.new;
-    settingVC.image = cell.imageView.image;
-    [self.navigationController pushViewController:settingVC animated:YES];
+    HomeTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    CGRect rect = [cell convertRect:cell.imgView.frame toView:UIApplication.sharedApplication.keyWindow];
+    UIImageView *imgView = [UIImageView initWithFrame:rect ImageUrl:nil Image:cell.imgView.image ContentMode:UIViewContentModeScaleAspectFill];
+    HomeDetailView *detailView = [[HomeDetailView alloc] initWithFrame:CGRectMake(0, kScreenH, kScreenW, kScreenH)];
+    detailView.imgView.image = cell.imgView.image;
+    detailView.name.text = cell.name.text;
+    detailView.desc.text = cell.desc.text;
+    detailView.price.text = cell.price.text;
+    [detailView showWithImg:imgView];
+    cell.imgView.hidden = YES;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        cell.imgView.hidden = NO;
+    });
 }
 
 /*
@@ -97,8 +103,19 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [UITableView initWithFrame:CGRectMake(0, 264, kScreenW, kScreenH-264-49) Style:UITableViewStylePlain Object:self];
-        [_tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"HomeCell"];
+        _tableView = [UITableView initWithFrame:CGRectMake(0, 64, kScreenW, kScreenH-49-64) Style:UITableViewStylePlain Object:self];
+        _tableView.rowHeight = 100;
+        [_tableView registerClass:HomeTableViewCell.class forCellReuseIdentifier:@"HomeCell"];
+        XWScrollView *scroll = [[XWScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 200) ImgArray:@[@"1",@"2",@"3",@"4",@"5"].mutableCopy CurrentIndex:0];
+        WEAKSELF
+        scroll.selectItemBlock = ^(NSInteger index) {
+            NSLog(@"======%ld",index);
+//            [weakSelf changeAppIconName:@"bigicon"];
+            SettingViewController *settingVC = SettingViewController.new;
+//            settingVC.image = cell.imageView.image;
+            [self.navigationController pushViewController:settingVC animated:YES];
+        };
+        _tableView.tableHeaderView = scroll;
     }
     return _tableView;
 }
