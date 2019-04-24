@@ -23,6 +23,11 @@
     SideViewController *sideC = SideViewController.new;
     BaseTabBarViewController *tabbarC = BaseTabBarViewController.new;
     self.window.rootViewController = [[RootViewController alloc] initWithSideVC:sideC TabbarVC:tabbarC];
+    
+    UITableView.appearance.estimatedRowHeight = 0;
+    UITableView.appearance.estimatedSectionHeaderHeight = 0;
+    UITableView.appearance.estimatedSectionFooterHeight = 0;
+    UITableViewCell.appearance.selectionStyle = UITableViewCellSelectionStyleNone;
     return YES;
 }
 

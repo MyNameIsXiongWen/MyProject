@@ -39,6 +39,24 @@
     self.tabBar.barTintColor = UIColor.whiteColor;
     self.tabBar.backgroundColor = UIColor.whiteColor;
 }
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    NSInteger index = [tabBar.items indexOfObject:item];
+    if (self.selectedIndex != index) {
+        UIView *view = tabBar.subviews[1+index];
+        if ([view isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+            for (UIView *subView in view.subviews) {
+                if ([subView isKindOfClass:NSClassFromString(@"UITabBarSwappableImageView")]) {
+                    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.translation.y"];
+                    animation.values = @[@0.0,@-1.7,@-3.15,@-5.3,@-7.26,@-5.3,@-3.15,@-1.7,@0.0,@-1.7,@-3.6,@-5.4,@-3.6,@-2.2,@0.0];
+                    animation.duration = 1.f;
+                    [subView.layer addAnimation:animation forKey:nil];
+                }
+            }
+        }
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

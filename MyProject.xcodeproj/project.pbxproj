@@ -57,6 +57,10 @@
 		96236EB8225C49CA000EB49E /* XWChartsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96236EB7225C49CA000EB49E /* XWChartsView.m */; };
 		96236EC2225F433D000EB49E /* bigicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 96236EC1225F433D000EB49E /* bigicon.png */; };
 		963533DF2261CAEE00F4DA40 /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 963533DE2261CAEE00F4DA40 /* UIImage+Category.m */; };
+		963533F122657A0900F4DA40 /* XWPushAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 963533F022657A0900F4DA40 /* XWPushAnimation.m */; };
+		963533F422657E2C00F4DA40 /* XWPopAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 963533F322657E2C00F4DA40 /* XWPopAnimation.m */; };
+		963533F82265891E00F4DA40 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 963533F72265891E00F4DA40 /* HomeTableViewCell.m */; };
+		963533FB22658B9300F4DA40 /* HomeDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 963533FA22658B9300F4DA40 /* HomeDetailView.m */; };
 		D09C58226C58FC553C498BC7 /* libPods-MyProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 716F5AE204F42E6EDD46EA45 /* libPods-MyProject.a */; };
 /* End PBXBuildFile section */
 
@@ -157,6 +161,14 @@
 		96236EC1225F433D000EB49E /* bigicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bigicon.png; sourceTree = "<group>"; };
 		963533DD2261CAEE00F4DA40 /* UIImage+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Category.h"; sourceTree = "<group>"; };
 		963533DE2261CAEE00F4DA40 /* UIImage+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
+		963533EF22657A0900F4DA40 /* XWPushAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XWPushAnimation.h; sourceTree = "<group>"; };
+		963533F022657A0900F4DA40 /* XWPushAnimation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XWPushAnimation.m; sourceTree = "<group>"; };
+		963533F222657E2C00F4DA40 /* XWPopAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XWPopAnimation.h; sourceTree = "<group>"; };
+		963533F322657E2C00F4DA40 /* XWPopAnimation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XWPopAnimation.m; sourceTree = "<group>"; };
+		963533F62265891E00F4DA40 /* HomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
+		963533F72265891E00F4DA40 /* HomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
+		963533F922658B9300F4DA40 /* HomeDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeDetailView.h; sourceTree = "<group>"; };
+		963533FA22658B9300F4DA40 /* HomeDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeDetailView.m; sourceTree = "<group>"; };
 		A60AAA79F435DD636C29E5C9 /* Pods-MyProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyProject/Pods-MyProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -229,8 +241,8 @@
 			children = (
 				961CADEF225335FC00110AD0 /* Side */,
 				961CAD692252F27C00110AD0 /* Home */,
-				961CAD6A2252F28500110AD0 /* Mine */,
 				961CAD6B2252F28900110AD0 /* Middle */,
+				961CAD6A2252F28500110AD0 /* Mine */,
 			);
 			path = Moudles;
 			sourceTree = "<group>";
@@ -240,6 +252,9 @@
 			children = (
 				961CAD732252F2AE00110AD0 /* HomeViewController.h */,
 				961CAD722252F2AE00110AD0 /* HomeViewController.m */,
+				963533F922658B9300F4DA40 /* HomeDetailView.h */,
+				963533FA22658B9300F4DA40 /* HomeDetailView.m */,
+				963533F5226588F900F4DA40 /* Cell */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -384,6 +399,10 @@
 				961CADA82252FA0F00110AD0 /* NSString+Category.m */,
 				963533DD2261CAEE00F4DA40 /* UIImage+Category.h */,
 				963533DE2261CAEE00F4DA40 /* UIImage+Category.m */,
+				963533EF22657A0900F4DA40 /* XWPushAnimation.h */,
+				963533F022657A0900F4DA40 /* XWPushAnimation.m */,
+				963533F222657E2C00F4DA40 /* XWPopAnimation.h */,
+				963533F322657E2C00F4DA40 /* XWPopAnimation.m */,
 			);
 			path = NSCategory;
 			sourceTree = "<group>";
@@ -464,6 +483,15 @@
 				96236EB7225C49CA000EB49E /* XWChartsView.m */,
 			);
 			path = XWChartsView;
+			sourceTree = "<group>";
+		};
+		963533F5226588F900F4DA40 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				963533F62265891E00F4DA40 /* HomeTableViewCell.h */,
+				963533F72265891E00F4DA40 /* HomeTableViewCell.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		BDDE018EE6F36C7A3B91D61B /* Pods */ = {
@@ -614,6 +642,7 @@
 				961CADEE2253352100110AD0 /* UITableView+Category.m in Sources */,
 				961CAD672252F21600110AD0 /* BaseTabBarViewController.m in Sources */,
 				961CADD82252FA1000110AD0 /* UIButton+Category.m in Sources */,
+				963533F82265891E00F4DA40 /* HomeTableViewCell.m in Sources */,
 				961CAD552252F1B300110AD0 /* main.m in Sources */,
 				961CAD742252F2AE00110AD0 /* HomeViewController.m in Sources */,
 				961CADC52252FA1000110AD0 /* MKThumbImageCollectionViewCell.m in Sources */,
@@ -622,13 +651,16 @@
 				961CADD42252FA1000110AD0 /* NSDictionary+Category.m in Sources */,
 				961CADC42252FA1000110AD0 /* MKBigImageView.m in Sources */,
 				961CADE12252FA1000110AD0 /* MKShadowTableViewCell.m in Sources */,
+				963533F422657E2C00F4DA40 /* XWPopAnimation.m in Sources */,
 				961CADD92252FA1000110AD0 /* UIImage+Category.m in Sources */,
 				961CAD652252F21600110AD0 /* SideViewController.m in Sources */,
 				961CADDB2252FA1000110AD0 /* UILabel+Category.m in Sources */,
 				961CADD52252FA1000110AD0 /* NSObject+Category.m in Sources */,
+				963533FB22658B9300F4DA40 /* HomeDetailView.m in Sources */,
 				961CADD72252FA1000110AD0 /* MKPullDownView.m in Sources */,
 				961CADC82252FA1000110AD0 /* MKNavView.m in Sources */,
 				96236EB8225C49CA000EB49E /* XWChartsView.m in Sources */,
+				963533F122657A0900F4DA40 /* XWPushAnimation.m in Sources */,
 				963533DF2261CAEE00F4DA40 /* UIImage+Category.m in Sources */,
 				961CADFA22544DB700110AD0 /* FaceRecognitionViewController.m in Sources */,
 				961CADCA2252FA1000110AD0 /* MKActionSheetTitleTableViewCell.m in Sources */,
@@ -779,6 +811,7 @@
 			baseConfigurationReference = 4DF20A375C2339D437CBBBF8 /* Pods-MyProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8YA976Z9B;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MyProject/Macro/PrefixHeader.pch";
@@ -788,8 +821,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.manku.MyProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.manku.MyProject1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -799,6 +833,7 @@
 			baseConfigurationReference = A60AAA79F435DD636C29E5C9 /* Pods-MyProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M8YA976Z9B;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MyProject/Macro/PrefixHeader.pch";
@@ -808,8 +843,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.manku.MyProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.manku.MyProject1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

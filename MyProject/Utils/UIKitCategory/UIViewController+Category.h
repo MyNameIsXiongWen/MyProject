@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (Category)
+@interface UIViewController (Category) <UINavigationControllerDelegate>
 
 //导航栏左边边按钮
 @property (nonatomic, strong) UIButton *leftNavBtn;
 //导航栏右边按钮
 @property (nonatomic, strong) UIButton *rightNavBtn;
+@property (nonatomic, strong) UIPercentDrivenInteractiveTransition *percentDrivenTransition;
 
 //左侧按钮事件
 - (void)leftNavBtnAction:(UIButton *)sender;

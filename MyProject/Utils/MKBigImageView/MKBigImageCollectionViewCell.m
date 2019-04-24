@@ -21,10 +21,10 @@
 //    self.scrView.minimumZoomScale = 1.0;
 //    self.scrView.delegate = self;
 //    self.scrView.scrollEnabled = YES;
-//    UITapGestureRecognizer *singletap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
-//    singletap.numberOfTapsRequired = 1;
+    UITapGestureRecognizer *singletap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
+    singletap.numberOfTapsRequired = 1;
 //    [self.scrView addGestureRecognizer:singletap];
-//    [self.imgView addGestureRecognizer:singletap];
+    [self.imgView addGestureRecognizer:singletap];
 //
 //    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
 //    doubleTap.numberOfTapsRequired = 2;
