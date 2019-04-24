@@ -95,5 +95,36 @@ static void RGBtoHSV( float r, float g, float b, float *h, float *s, float *v )
     CGContextRelease(context);
     return [UIColor colorWithRed:([MaxColor[0] intValue]/255.0f) green:([MaxColor[1] intValue]/255.0f) blue:([MaxColor[2] intValue]/255.0f) alpha:([MaxColor[3] intValue]/255.0f)];
 }
++ (UIImage *)imageWithColor:(UIColor *)color
+                       size:(CGSize)size
+                       text:(NSString *)text
+             textAttributes:(NSDictionary *)textAttributes
+                   circular:(BOOL)isCircular
+{
+    if (!color || size.width <= 0 || size.height <= 0) return nil;
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    // circular
+    if (isCircular) {
+        CGPathRef path = CGPathCreateWithEllipseInRect(rect, NULL);
+        CGContextAddPath(context, path);
+        CGContextClip(context);
+        CGPathRelease(path);
+    }
+    
+    // color
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextFillRect(context, rect);
+    
+    // text
+    CGSize textSize = [text sizeWithAttributes:textAttributes];
+    [text drawInRect:CGRectMake((size.width - textSize.width) / 2, (size.height - textSize.height) / 2, textSize.width, textSize.height) withAttributes:textAttributes];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
 
 @end

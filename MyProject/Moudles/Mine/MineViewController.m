@@ -7,8 +7,11 @@
 //
 
 #import "MineViewController.h"
+#import "MineTableViewCell.h"
 
-@interface MineViewController ()
+@interface MineViewController () <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
@@ -18,6 +21,29 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.leftNavBtn setImage:UIImageMake(@"") forState:0];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+}
+
+#pragma mark ------------UITableViewDelegate-------------
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 5;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewAutomaticDimension;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    MineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(MineTableViewCell.class)];
+    cell.contentView.backgroundColor = indexPath.row%2 == 0 ? ColorFromHexString(@"f5f5f5") : UIColor.whiteColor;
+    return cell;
 }
 
 /*
@@ -29,5 +55,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [UITableView initWithFrame:CGRectZero Style:UITableViewStylePlain Object:self];
+        [_tableView registerClass:MineTableViewCell.class forCellReuseIdentifier:NSStringFromClass(MineTableViewCell.class)];
+        [self.view addSubview:_tableView];
+    }
+    return _tableView;
+}
 
 @end

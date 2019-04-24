@@ -39,7 +39,6 @@
 		961CADD62252FA1000110AD0 /* NSString+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADA82252FA0F00110AD0 /* NSString+Category.m */; };
 		961CADD72252FA1000110AD0 /* MKPullDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADAB2252FA0F00110AD0 /* MKPullDownView.m */; };
 		961CADD82252FA1000110AD0 /* UIButton+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADAE2252FA1000110AD0 /* UIButton+Category.m */; };
-		961CADD92252FA1000110AD0 /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADB02252FA1000110AD0 /* UIImage+Category.m */; };
 		961CADDA2252FA1000110AD0 /* UIImageView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADB22252FA1000110AD0 /* UIImageView+Category.m */; };
 		961CADDB2252FA1000110AD0 /* UILabel+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADB42252FA1000110AD0 /* UILabel+Category.m */; };
 		961CADDC2252FA1000110AD0 /* UITextField+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CADB62252FA1000110AD0 /* UITextField+Category.m */; };
@@ -61,6 +60,9 @@
 		963533F422657E2C00F4DA40 /* XWPopAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 963533F322657E2C00F4DA40 /* XWPopAnimation.m */; };
 		963533F82265891E00F4DA40 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 963533F72265891E00F4DA40 /* HomeTableViewCell.m */; };
 		963533FB22658B9300F4DA40 /* HomeDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 963533FA22658B9300F4DA40 /* HomeDetailView.m */; };
+		96C184F122670C8400B4FF1F /* MineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C184F022670C8400B4FF1F /* MineTableViewCell.m */; };
+		96C184F422670C9300B4FF1F /* MineSubTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C184F322670C9300B4FF1F /* MineSubTableViewCell.m */; };
+		96C184F722674B1A00B4FF1F /* UINavigationBar+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C184F622674B1A00B4FF1F /* UINavigationBar+Category.m */; };
 		D09C58226C58FC553C498BC7 /* libPods-MyProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 716F5AE204F42E6EDD46EA45 /* libPods-MyProject.a */; };
 /* End PBXBuildFile section */
 
@@ -126,8 +128,6 @@
 		961CADAB2252FA0F00110AD0 /* MKPullDownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKPullDownView.m; sourceTree = "<group>"; };
 		961CADAD2252FA1000110AD0 /* UIButton+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Category.h"; sourceTree = "<group>"; };
 		961CADAE2252FA1000110AD0 /* UIButton+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Category.m"; sourceTree = "<group>"; };
-		961CADAF2252FA1000110AD0 /* UIImage+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Category.h"; sourceTree = "<group>"; };
-		961CADB02252FA1000110AD0 /* UIImage+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
 		961CADB12252FA1000110AD0 /* UIImageView+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Category.h"; sourceTree = "<group>"; };
 		961CADB22252FA1000110AD0 /* UIImageView+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Category.m"; sourceTree = "<group>"; };
 		961CADB32252FA1000110AD0 /* UILabel+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Category.h"; sourceTree = "<group>"; };
@@ -169,6 +169,12 @@
 		963533F72265891E00F4DA40 /* HomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
 		963533F922658B9300F4DA40 /* HomeDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeDetailView.h; sourceTree = "<group>"; };
 		963533FA22658B9300F4DA40 /* HomeDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeDetailView.m; sourceTree = "<group>"; };
+		96C184EF22670C8400B4FF1F /* MineTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineTableViewCell.h; sourceTree = "<group>"; };
+		96C184F022670C8400B4FF1F /* MineTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineTableViewCell.m; sourceTree = "<group>"; };
+		96C184F222670C9300B4FF1F /* MineSubTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineSubTableViewCell.h; sourceTree = "<group>"; };
+		96C184F322670C9300B4FF1F /* MineSubTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineSubTableViewCell.m; sourceTree = "<group>"; };
+		96C184F522674B1A00B4FF1F /* UINavigationBar+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Category.h"; sourceTree = "<group>"; };
+		96C184F622674B1A00B4FF1F /* UINavigationBar+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Category.m"; sourceTree = "<group>"; };
 		A60AAA79F435DD636C29E5C9 /* Pods-MyProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyProject/Pods-MyProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -264,6 +270,10 @@
 			children = (
 				961CAD6C2252F2A300110AD0 /* MineViewController.h */,
 				961CAD6D2252F2A300110AD0 /* MineViewController.m */,
+				96C184EF22670C8400B4FF1F /* MineTableViewCell.h */,
+				96C184F022670C8400B4FF1F /* MineTableViewCell.m */,
+				96C184F222670C9300B4FF1F /* MineSubTableViewCell.h */,
+				96C184F322670C9300B4FF1F /* MineSubTableViewCell.m */,
 				961CADF02253382E00110AD0 /* SettingViewController.h */,
 				961CADF12253382E00110AD0 /* SettingViewController.m */,
 			);
@@ -421,8 +431,6 @@
 			children = (
 				961CADAD2252FA1000110AD0 /* UIButton+Category.h */,
 				961CADAE2252FA1000110AD0 /* UIButton+Category.m */,
-				961CADAF2252FA1000110AD0 /* UIImage+Category.h */,
-				961CADB02252FA1000110AD0 /* UIImage+Category.m */,
 				961CADB12252FA1000110AD0 /* UIImageView+Category.h */,
 				961CADB22252FA1000110AD0 /* UIImageView+Category.m */,
 				961CADB32252FA1000110AD0 /* UILabel+Category.h */,
@@ -439,6 +447,8 @@
 				961CADED2253352100110AD0 /* UITableView+Category.m */,
 				961CADBB2252FA1000110AD0 /* UIViewController+Category.h */,
 				961CADBC2252FA1000110AD0 /* UIViewController+Category.m */,
+				96C184F522674B1A00B4FF1F /* UINavigationBar+Category.h */,
+				96C184F622674B1A00B4FF1F /* UINavigationBar+Category.m */,
 			);
 			path = UIKitCategory;
 			sourceTree = "<group>";
@@ -629,9 +639,11 @@
 				961CADDD2252FA1000110AD0 /* UITextView+Category.m in Sources */,
 				961CADE02252FA1000110AD0 /* MKShadowCollectionViewCell.m in Sources */,
 				961CADFD225457AF00110AD0 /* FacePreviewView.m in Sources */,
+				96C184F722674B1A00B4FF1F /* UINavigationBar+Category.m in Sources */,
 				961CADDF2252FA1000110AD0 /* UIViewController+Category.m in Sources */,
 				961CAD472252F1AA00110AD0 /* ViewController.m in Sources */,
 				961CADDA2252FA1000110AD0 /* UIImageView+Category.m in Sources */,
+				96C184F122670C8400B4FF1F /* MineTableViewCell.m in Sources */,
 				961CADC22252FA1000110AD0 /* MKBigImageCollectionViewCell.m in Sources */,
 				961CADE82253166800110AD0 /* UICollectionView+Category.m in Sources */,
 				961CAD662252F21600110AD0 /* BaseNavigationController.m in Sources */,
@@ -647,12 +659,12 @@
 				961CAD742252F2AE00110AD0 /* HomeViewController.m in Sources */,
 				961CADC52252FA1000110AD0 /* MKThumbImageCollectionViewCell.m in Sources */,
 				961CAD442252F1AA00110AD0 /* AppDelegate.m in Sources */,
+				96C184F422670C9300B4FF1F /* MineSubTableViewCell.m in Sources */,
 				961CAD642252F21600110AD0 /* RootViewController.m in Sources */,
 				961CADD42252FA1000110AD0 /* NSDictionary+Category.m in Sources */,
 				961CADC42252FA1000110AD0 /* MKBigImageView.m in Sources */,
 				961CADE12252FA1000110AD0 /* MKShadowTableViewCell.m in Sources */,
 				963533F422657E2C00F4DA40 /* XWPopAnimation.m in Sources */,
-				961CADD92252FA1000110AD0 /* UIImage+Category.m in Sources */,
 				961CAD652252F21600110AD0 /* SideViewController.m in Sources */,
 				961CADDB2252FA1000110AD0 /* UILabel+Category.m in Sources */,
 				961CADD52252FA1000110AD0 /* NSObject+Category.m in Sources */,
