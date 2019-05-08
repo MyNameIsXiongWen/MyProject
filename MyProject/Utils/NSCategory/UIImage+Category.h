@@ -13,6 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIImage (Category)
 
 - (UIColor *)getColorByImage;
++ (UIImage *)imageWithColor:(UIColor *)color
+                       size:(CGSize)size
+                       text:(NSString *)text
+             textAttributes:(NSDictionary *)textAttributes
+                   circular:(BOOL)isCircular;
 
 @end
 
