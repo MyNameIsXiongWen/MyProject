@@ -40,6 +40,16 @@
 #define kScreenW [UIScreen mainScreen].bounds.size.width
 #define kScreenH [UIScreen mainScreen].bounds.size.height
 
+#define kNavigationBarHeight 44
+#define kTabbarHeight 49
+#define kBangs (kScreenH > 736) //是否有刘海
+#define kStatusBarHeight ((kBangs) ? 44 : 20)
+#define kBottomDangerHeight ((kBangs) ? 34 : 0)
+//顶部状态栏和导航栏的高度之和
+#define kTopBarHeight (kStatusBarHeight + kNavigationBarHeight)
+//底部菜单和安全区域的高度之和
+#define kBottomBarHeight (kTabbarHeight + kBottomDangerHeight)
+
 #define kMainURL @""
 
 #define WEAKSELF typeof(self) __weak weakSelf = self;
@@ -47,6 +57,39 @@
 #define UIImageMake(img) [UIImage imageNamed:img inBundle:nil compatibleWithTraitCollection:nil]
 #define Color(a,b,c,d) [UIColor colorWithRed:a / 255.0 green:b / 255.0 blue:c / 255.0 alpha:d]
 #define ColorFromHexString(hex) [UIColor colorFromHexString:hex]
+#define kColorFromHexString(hex) [UIColor colorFromHexString:hex]
 #define FONT_SIZE(size) [UIFont systemFontOfSize:size]
+
+#define kLiveUrl @"rtmp://192.168.207.106:1935/rtmplive/room"
+
+
+#define kPublishImgCount 9
+
+#define kFontTheme24 [UIFont systemFontOfSize:24]
+#define kFontTheme20 [UIFont systemFontOfSize:20]
+#define kFontTheme18 [UIFont systemFontOfSize:18]
+#define kFontTheme16 [UIFont systemFontOfSize:16]
+#define kFontTheme15 [UIFont systemFontOfSize:15]
+#define kFontTheme14 [UIFont systemFontOfSize:14]
+#define kFontTheme13 [UIFont systemFontOfSize:13]
+#define kFontTheme12 [UIFont systemFontOfSize:12]
+#define kFontTheme11 [UIFont systemFontOfSize:11]
+#define kFontTheme10 [UIFont systemFontOfSize:10]
+#define kMediumFontTheme12 [UIFont systemFontOfSize:12 weight:UIFontWeightMedium]
+#define kMediumFontTheme14 [UIFont systemFontOfSize:14 weight:UIFontWeightMedium]
+#define kMediumFontTheme15 [UIFont systemFontOfSize:15 weight:UIFontWeightMedium]
+#define kMediumFontTheme16 [UIFont systemFontOfSize:16 weight:UIFontWeightMedium]
+#define kMediumFontTheme17 [UIFont systemFontOfSize:17 weight:UIFontWeightMedium]
+#define kMediumFontTheme18 [UIFont systemFontOfSize:18 weight:UIFontWeightMedium]
+#define kMediumFontTheme20 [UIFont systemFontOfSize:20 weight:UIFontWeightMedium]
+#define kMediumFontTheme24 [UIFont systemFontOfSize:24 weight:UIFontWeightMedium]
+
+
+#define kColorTheme000 kColorFromHexString(@"000000")
+#define kColorTheme444 kColorFromHexString(@"444444")
+#define kColorTheme666 kColorFromHexString(@"666666")
+#define kColorTheme999 kColorFromHexString(@"999999")
+#define kColorThemeeee kColorFromHexString(@"eeeeee")
+#define kColorThemefff kColorFromHexString(@"ffffff")
 
 #endif /* PrefixHeader_pch */

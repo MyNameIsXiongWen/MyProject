@@ -30,6 +30,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UILabel *placeholderLabel;
 
++ (UITextView *(^)(CGRect tvFrame))tvFrame;
+- (UITextView *(^)(NSString *tvText))tvText;
+- (UITextView *(^)(UIFont *tvFont))tvFont;
+- (UITextView *(^)(UIColor *tvTextColor))tvTextColor;
+///要先调用tvFont，这样tvPlaceholder才能获得font
+- (UITextView *(^)(NSString *tvPlaceholder))tvPlaceholder;
+
 @end
 
 NS_ASSUME_NONNULL_END

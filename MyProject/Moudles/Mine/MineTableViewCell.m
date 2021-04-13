@@ -37,10 +37,18 @@
     return self;
 }
 
+- (void)setDataCount:(NSInteger)dataCount {
+    _dataCount = dataCount;
+    [self.tableView reloadData];
+    [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(self.tableView.contentSize.height);
+    }];
+}
+
 #pragma mark ------------UITableViewDelegate-------------
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return self.dataCount;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -52,10 +60,15 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.getCurrentMethodCallerVC.navigationController pushViewController:NSClassFromString(@"DetailViewController").new animated:YES];
+}
+
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [UITableView initWithFrame:CGRectZero Style:UITableViewStylePlain Object:self];
         _tableView.rowHeight = 60;
+        _tableView.scrollEnabled = NO;
         [_tableView registerClass:MineSubTableViewCell.class forCellReuseIdentifier:NSStringFromClass(MineSubTableViewCell.class)];
         _tableView.backgroundColor = ColorFromHexString(@"ff7919");
         [self.contentView addSubview:_tableView];

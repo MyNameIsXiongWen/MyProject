@@ -100,4 +100,8 @@
          failure:(void (^)(NSError *error))failure
         progerss:(void (^)(NSProgress *downloadProgress))progress;
 
+#pragma mark 获得时间戳
+- (NSString *)stringWithTimeStamp;
+- (NSString *)getRandomString;
+
 @end

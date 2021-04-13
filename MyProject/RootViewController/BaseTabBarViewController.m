@@ -23,9 +23,9 @@
 }
 
 -(void)createChildViewControllers {
-    NSArray *controllers = @[@"HomeViewController",@"MiddleViewController",@"MineViewController"];
-    NSArray *icon = @[@"tab_goodsstore",@"tab_crm",@"tab_knowstore",@"tab_workspace"];
-    NSArray *titleArray = @[@"AAA",@"BBB",@"CCC",@"DDD"];
+    NSArray *controllers = @[@"HomeViewController",@"LiveTabViewController",@"MiddleViewController",@"UploadMainViewController",@"DownloadMainViewController"];
+    NSArray *icon = @[@"tab_goodsstore",@"tab_crm",@"tab_knowstore",@"tab_knowstore",@"tab_workspace"];
+    NSArray *titleArray = @[@"Home",@"Live",@"Draw",@"Upload",@"Download"];
     for (int i = 0; i < controllers.count; i++) {
         id vc = [NSClassFromString(controllers[i]) new];
         BaseNavigationController *navC = [[BaseNavigationController alloc]initWithRootViewController:vc];
@@ -36,6 +36,7 @@
         [navC.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColor.orangeColor} forState:UIControlStateSelected];
         [self addChildViewController:navC];
     }
+    self.selectedIndex = 4;
     self.tabBar.barTintColor = UIColor.whiteColor;
     self.tabBar.backgroundColor = UIColor.whiteColor;
 }

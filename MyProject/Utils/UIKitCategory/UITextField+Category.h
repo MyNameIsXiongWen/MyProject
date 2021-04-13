@@ -18,4 +18,12 @@
                    BorderColor:(UIColor *)borderColor
                   CornerRadius:(CGFloat)radius;
 
++ (UITextField *(^)(CGRect tfFrame))tfFrame;
+- (UITextField *(^)(NSString *tfText))tfText;
+- (UITextField *(^)(NSString *tfPlaceholder))tfPlaceholder;
+- (UITextField *(^)(UIFont *tfFont))tfFont;
+- (UITextField *(^)(UIColor *tfTextColor))tfTextColor;
+- (UITextField *(^)(UIColor *tfBorderColor))tfBorderColor;
+- (UITextField *(^)(CGFloat tfCornerRadius))tfCornerRadius;
+
 @end

@@ -11,5 +11,13 @@ pod 'YYModel'
 pod 'IQKeyboardManager'
 pod 'SDWebImage'
 pod 'AvoidCrash'
+pod 'LFLiveKit-ReplayKit'
+pod 'TZImagePickerController’
+
+end
+
+target 'BroadExt' do
+
+pod 'LFLiveKit-ReplayKit'
 
 end

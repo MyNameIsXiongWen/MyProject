@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  MyProject
+
+  Created by xiaobu on 2020/7/25.
+  Copyright © 2020 xiaobu. All rights reserved.
+*/
+"GoLive" = "去直播";
+"LookLive" = "看直播";
+"ShareScreen" = "共享屏幕";
+"ExitShare" = "退出共享";
+"BeautyFace" = "美颜";
+"Switch" = "切换";
+"TakeVideo" = "拍视频";

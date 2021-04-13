@@ -25,4 +25,17 @@
                  TextColor:(UIColor *)textColor
            BackgroundColor:(UIColor *)backgroundColor;
 
++ (UILabel *(^)(void))labelInit;
++ (UILabel *(^)(CGRect labelFrame))labelFrame;
+- (UILabel *(^)(NSString *labelText))labelText;
+- (UILabel *(^)(UIFont *labelFont))labelFont;
+- (UILabel *(^)(UIColor *labelTitleColor))labelTitleColor;
+- (UILabel *(^)(UIColor *labelBkgColor))labelBkgColor;
+- (UILabel *(^)(NSInteger number))labelNumberOfLines;
+- (UILabel *(^)(NSTextAlignment alignment))labelTextAlignment;
+- (UILabel *(^)(BOOL labelCopyEnable))labelCopyEnable;
+- (UILabel *(^)(UIColor *tfBorderColor))labelBorderColor;
+- (UILabel *(^)(CGFloat tfCornerRadius))labelCornerRadius;
+//- (UILabel *(^)(BOOL labelCopyEnable, id target, SEL longPressAction))labelCopyEnable;
+
 @end

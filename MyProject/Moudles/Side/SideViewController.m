@@ -37,23 +37,18 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat y = scrollView.contentOffset.y;
+    NSLog(@"contentOffsetY=====%f", y);
     // 控制表头图片的放大
     if (y < 0) {
         // 向下拉多少
         // 表头就向上移多少
-        CGRect rect = self.headerBgView.frame;
-        rect.origin.y = y;
         // 高度就增加多少
-        rect.size.height = 200 - y;
-        self.headerBgView.frame = rect;
-        NSLog(@"headerBgView======%f=====%f",rect.origin.y, rect.size.height);
-        NSLog(@"headerView======%f=====%f",self.headerView.frame.origin.y, self.headerView.frame.size.height);
-    }
-    else {
-        CGRect rect = self.headerBgView.frame;
-        rect.origin.y = 0;
-        rect.size.height = 200;
-        self.headerBgView.frame = rect;
+        CGFloat totalOffset = 200-y;
+        CGFloat f = totalOffset / 200;
+        self.headerBgView.frame = CGRectMake(-(300*f-300)*0.5, y, 300*f, totalOffset);
+    } else {
+        self.headerBgView.y = 0;
+        self.headerBgView.height = 200;
     }
 }
 
@@ -86,7 +81,7 @@
 
 - (UIView *)headerView {
     if (!_headerView) {
-        _headerView = [UIView initWithFrame:CGRectMake(0, 0, 300, 200) BackgroundColor:UIColor.whiteColor CornerRadius:0];
+        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 200)];
         [_headerView addSubview:self.headerBgView];
     }
     return _headerView;
@@ -95,6 +90,7 @@
 - (UIImageView *)headerBgView {
     if (!_headerBgView) {
         _headerBgView = [UIImageView initWithFrame:self.headerView.bounds ImageUrl:@"" Image:UIImageMake(@"登陆页") ContentMode:UIViewContentModeScaleAspectFill];
+        _headerBgView.clipsToBounds = YES;
     }
     return _headerBgView;
 }

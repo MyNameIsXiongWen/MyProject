@@ -81,4 +81,16 @@
 - (BOOL)isUrlString;
 ///nstimeinterval转时间
 - (NSString *)formatterTime;
+///获取当前时间
++ (NSString *)getCurrentTime;
++ (NSString *)getMsgTimeByDate:(NSDate *)date;
+//根据网络图片url获取图片高度
+- (void)getImageHeightWithWidth:(CGFloat)width Complete:(void (^)(CGFloat height))complete;
+//date转换成周几
+- (NSString *)convertWeeks;
+//视频链接生成封面图(第一帧)
+- (void)thumbnailImageForVideoWithComplete:(void (^)(UIImage *img))complete;
+
++ (NSString *)stringWithTimeStamp;
+
 @end

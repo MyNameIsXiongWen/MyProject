@@ -20,17 +20,17 @@
 
 - (void)customlayoutSubviews {
     [self customlayoutSubviews];
-    for (UIView *subview in self.subviews) {
-        if ([NSStringFromClass(subview.class) containsString:@"ContentView"]) {
-            for (UIView *subsubView in subview.subviews) {
-                if (subsubView.x < 100) {
-                    UIEdgeInsets earlyEdge = subview.layoutMargins;
-                    earlyEdge.left -= 20;
-                    subview.layoutMargins = earlyEdge;
-                }
-            }
-        }
-    }
+//    for (UIView *subview in self.subviews) {
+//        if ([NSStringFromClass(subview.class) containsString:@"ContentView"]) {
+//            for (UIView *subsubView in subview.subviews) {
+//                if (subsubView.frame.origin.x < 100) {
+//                    UIEdgeInsets earlyEdge = subview.layoutMargins;
+//                    earlyEdge.left -= 20;
+//                    subview.layoutMargins = earlyEdge;
+//                }
+//            }
+//        }
+//    }
 }
 
 @end

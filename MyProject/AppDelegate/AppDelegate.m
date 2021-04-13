@@ -10,6 +10,8 @@
 #import "RootViewController.h"
 #import "SideViewController.h"
 #import "BaseTabBarViewController.h"
+#import "UploadManager.h"
+#import "DownloadManager.h"
 
 @interface AppDelegate ()
 
@@ -24,6 +26,8 @@
     BaseTabBarViewController *tabbarC = BaseTabBarViewController.new;
     self.window.rootViewController = [[RootViewController alloc] initWithSideVC:sideC TabbarVC:tabbarC];
     
+    [self initSVProgress];
+    
     UITableView.appearance.estimatedRowHeight = 0;
     UITableView.appearance.estimatedSectionHeaderHeight = 0;
     UITableView.appearance.estimatedSectionFooterHeight = 0;
@@ -31,6 +35,13 @@
     return YES;
 }
 
+
+- (void)initSVProgress {
+    [SVProgressHUD setMinimumDismissTimeInterval:1.5];
+    [SVProgressHUD setInfoImage:UIImageMake(@"")];
+    [SVProgressHUD setCornerRadius:10];
+    [SVProgressHUD setForegroundColor:kColorTheme000];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -58,6 +69,8 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+    [UploadManager.sharedManager archiveUploadFileSource:nil];
+    [DownloadManager.sharedManager archiveDownloadFileSource:nil];
 }
 
 

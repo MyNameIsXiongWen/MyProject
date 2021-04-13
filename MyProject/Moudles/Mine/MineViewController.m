@@ -36,13 +36,10 @@
     return 5;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewAutomaticDimension;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(MineTableViewCell.class)];
     cell.contentView.backgroundColor = indexPath.row%2 == 0 ? ColorFromHexString(@"f5f5f5") : UIColor.whiteColor;
+    cell.dataCount = 3;
     return cell;
 }
 
@@ -59,6 +56,7 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [UITableView initWithFrame:CGRectZero Style:UITableViewStylePlain Object:self];
+        _tableView.estimatedRowHeight = 100;
         [_tableView registerClass:MineTableViewCell.class forCellReuseIdentifier:NSStringFromClass(MineTableViewCell.class)];
         [self.view addSubview:_tableView];
     }

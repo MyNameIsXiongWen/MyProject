@@ -12,7 +12,7 @@
 
 + (UICollectionView *)initWithFrame:(CGRect)rect Layout:(UICollectionViewFlowLayout *)layout Object:(id)object {
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:rect collectionViewLayout:layout];
-    collectionView.backgroundColor = UIColor.clearColor;
+    collectionView.backgroundColor = UIColor.whiteColor;
     collectionView.showsVerticalScrollIndicator = NO;
     collectionView.showsHorizontalScrollIndicator = NO;
     collectionView.delegate = object;

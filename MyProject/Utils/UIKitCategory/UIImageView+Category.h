@@ -24,4 +24,14 @@
                          Image:(UIImage *)image
                    ContentMode:(UIViewContentMode)mode;
 
++ (UIImageView *(^)(void))ivInit;
++ (UIImageView *(^)(CGRect ivFrame))ivFrame;
+- (UIImageView *(^)(UIColor *color))ivBkgColor;
+- (UIImageView *(^)(UIImage *ivImage))ivImage;
+- (UIImageView *(^)(UIViewContentMode ivMode))ivMode;
+///最好先调用ivImage
+- (UIImageView *(^)(NSString *ivImageUrl))ivImageUrl;
+- (UIImageView *(^)(CGFloat ivCornerRadius))ivCornerRadius;
+- (UIImageView *(^)(UIColor *tfBorderColor))ivBorderColor;
+
 @end

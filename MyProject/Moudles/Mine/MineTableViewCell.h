@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MineTableViewCell : UITableViewCell
 
+@property (nonatomic, assign) NSInteger dataCount;
+
 @end
 
 NS_ASSUME_NONNULL_END

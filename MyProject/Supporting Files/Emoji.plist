@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>[流泪]</key>
+	<string>liulei</string>
+	<key>[调皮]</key>
+	<string>tiaopi</string>
+	<key>[大笑]</key>
+	<string>daxiao</string>
+	<key>[猪头]</key>
+	<string>zhutou</string>
+	<key>[拜拜]</key>
+	<string>baibai</string>
+	<key>[锤你]</key>
+	<string>chuini</string>
+	<key>[擦汗]</key>
+	<string>cahan</string>
+	<key>[玫瑰]</key>
+	<string>meigui</string>
+	<key>[大哭]</key>
+	<string>daku</string>
+	<key>[偷笑]</key>
+	<string>touxiao</string>
+	<key>[无语]</key>
+	<string>wuyu</string>
+</dict>
+</plist>

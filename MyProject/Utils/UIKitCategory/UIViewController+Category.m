@@ -44,14 +44,20 @@
     [leftBtn addTarget:self action:@selector(leftNavBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     self.leftNavBtn = leftBtn;
     
-    UIButton *rightBtn  = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 100, 44)];
+    UIButton *rightBtn  = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 44)];
     [rightBtn setTitleColor:ColorFromHexString(@"323232") forState:UIControlStateNormal];
     rightBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     [rightBtn addTarget:self action:@selector(rightNavBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     self.rightNavBtn = rightBtn;
     
+    UIButton *rightAnotherBtn  = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 44)];
+    [rightAnotherBtn setTitleColor:ColorFromHexString(@"323232") forState:UIControlStateNormal];
+    rightAnotherBtn.titleLabel.font = [UIFont systemFontOfSize:16];
+    [rightAnotherBtn addTarget:self action:@selector(rightAnotherNavBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    self.rightAnotherNavBtn = rightAnotherBtn;
+    
     self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc] initWithCustomView:self.leftNavBtn];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.rightNavBtn];
+    self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:self.rightNavBtn], [[UIBarButtonItem alloc] initWithCustomView:self.rightAnotherNavBtn]];
     
     UIScreenEdgePanGestureRecognizer *screenPan = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(edgPanGesture:)];
     screenPan.edges = UIRectEdgeLeft;
@@ -74,12 +80,23 @@
     objc_setAssociatedObject(self, @"RightButton", rightNavBtn, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+- (UIButton *)rightAnotherNavBtn {
+    return objc_getAssociatedObject(self, @"RightAnotherButton");
+}
+
+- (void)setRightAnotherNavBtn:(UIButton *)rightAnotherNavBtn {
+    objc_setAssociatedObject(self, @"RightAnotherButton", rightAnotherNavBtn, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 //左侧按钮事件
 - (void)leftNavBtnAction:(UIButton *)sender{
     [self.navigationController popViewControllerAnimated:YES];
 }
 //右侧按钮事件
 - (void)rightNavBtnAction:(UIButton *)sender{
+    
+}
+- (void)rightAnotherNavBtnAction:(UIButton *)sender {
     
 }
 

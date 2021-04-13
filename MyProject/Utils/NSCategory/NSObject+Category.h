@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSObject (Category) <NSMutableCopying>
 
 - (NSDictionary *)dicFromObject:(NSObject *)object;
+//获取当前屏幕显示的viewcontroller
+- (UIViewController *)getCurrentMethodCallerVC;
 
 @end
 

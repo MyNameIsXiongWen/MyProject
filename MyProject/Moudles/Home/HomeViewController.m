@@ -107,12 +107,9 @@
         _tableView.rowHeight = 100;
         [_tableView registerClass:HomeTableViewCell.class forCellReuseIdentifier:@"HomeCell"];
         XWScrollView *scroll = [[XWScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 200) ImgArray:@[@"1",@"2",@"3",@"4",@"5"].mutableCopy CurrentIndex:0];
-        WEAKSELF
         scroll.selectItemBlock = ^(NSInteger index) {
             NSLog(@"======%ld",index);
-//            [weakSelf changeAppIconName:@"bigicon"];
             SettingViewController *settingVC = SettingViewController.new;
-//            settingVC.image = cell.imageView.image;
             [self.navigationController pushViewController:settingVC animated:YES];
         };
         _tableView.tableHeaderView = scroll;

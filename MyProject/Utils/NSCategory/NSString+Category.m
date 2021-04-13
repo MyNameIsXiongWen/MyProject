@@ -8,6 +8,7 @@
 
 #import "NSString+Category.h"
 #import <CommonCrypto/CommonDigest.h>
+#import <AVFoundation/AVFoundation.h>
 
 @implementation NSString (Category)
 
@@ -350,6 +351,105 @@
     CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformMandarinLatin, NO);
     CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformStripCombiningMarks, NO);
     return pinyin;
+}
+
++ (NSString *)getCurrentTime {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Shanghai"]];
+    return [formatter stringFromDate:NSDate.date];
+}
+
++ (NSString *)getMsgTimeByDate:(NSDate *)date {
+    NSCalendar *calendar = [NSString.new currentCalendar];
+    NSUInteger unitFlags = NSCalendarUnitYear| NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute;
+    NSDateComponents *dateCmp = [calendar components:unitFlags fromDate:date];
+    NSDateComponents *nowCmp = [calendar components:unitFlags fromDate:NSDate.date];
+    
+    NSDateFormatter *dateFmt = [[NSDateFormatter alloc] init];
+    [dateFmt setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Shanghai"]];
+    if ([dateCmp day] == [nowCmp day]) { // 今天
+        dateFmt.dateFormat = @"HH:mm";
+    } else if ((nowCmp.day-dateCmp.day)==1) { // 昨天
+        dateFmt.dateFormat = @"昨天 HH:mm";
+    } else if ([dateCmp year] == [nowCmp year]) { // 今年
+        dateFmt.dateFormat = @"MM-dd HH:mm";
+    } else {
+        dateFmt.dateFormat = @"yyyy-MM-dd";
+    }
+    return [dateFmt stringFromDate:date];
+}
+
+- (NSCalendar *)currentCalendar {
+    if ([NSCalendar respondsToSelector:@selector(calendarWithIdentifier:)]) {
+        return [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
+    }
+    return [NSCalendar currentCalendar];
+}
+
+- (void)getImageHeightWithWidth:(CGFloat)width Complete:(void (^)(CGFloat))complete {
+    CGImageSourceRef sourceRef = CGImageSourceCreateWithURL((CFURLRef)[NSURL URLWithString:self], NULL);
+    CFDictionaryRef dictiRef = CGImageSourceCopyPropertiesAtIndex(sourceRef, 0, NULL);
+    NSDictionary *imgHeader = (__bridge NSDictionary *)dictiRef;
+    CGFloat height;
+    if ([imgHeader[@"PixelWidth"] floatValue] > 0) {
+        height = width/[imgHeader[@"PixelWidth"] floatValue]*[imgHeader[@"PixelHeight"] floatValue];
+    } else {
+        height = width;
+    }
+    if (complete) {
+        complete(height);
+    }
+    CFRelease(sourceRef);
+    CFRelease(dictiRef);
+}
+
+- (NSString * )convertWeeks {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *date = [formatter dateFromString:self];
+    NSCalendar *gregorian = [NSCalendar currentCalendar];
+    NSDateComponents *comp = [gregorian components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitWeekday fromDate:date];
+    NSInteger weekDay = [comp weekday] - 1 ;
+    NSString *str = [[NSString stringWithFormat:@"%ld",weekDay] getAleberNumber];
+    if (weekDay == 0) {
+        str = @"日";
+    }
+    return str;
+}
+
+- (void)thumbnailImageForVideoWithComplete:(void (^)(UIImage *img))complete {
+    if (self.length == 0) {
+        return;
+    }
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:[NSURL URLWithString:self] options:nil];
+    NSParameterAssert(asset);
+    AVAssetImageGenerator *assetImageGenerator = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+    assetImageGenerator.appliesPreferredTrackTransform = YES;
+    assetImageGenerator.apertureMode = AVAssetImageGeneratorApertureModeEncodedPixels;
+    
+    CFTimeInterval thumbnailImageTime = 0; // 第0秒的截图
+    NSError *thumbnailImageGenerationError = nil;
+
+    CGImageRef thumbnailImageRef = [assetImageGenerator copyCGImageAtTime:CMTimeMake(thumbnailImageTime, 60)actualTime:NULL error:&thumbnailImageGenerationError];
+    if (thumbnailImageGenerationError) {
+        NSString *vcName = NSStringFromClass(self.getCurrentMethodCallerVC.class);
+        [SVProgressHUD showInfoWithStatus:@"视频封面图解析失败"];
+        complete(UIImage.new);
+        return;
+    }
+    if (thumbnailImageRef) {
+        complete([[UIImage alloc] initWithCGImage: thumbnailImageRef]);
+    } else {
+        NSLog(@"thumbnailImageGenerationError %@",thumbnailImageGenerationError);
+    }
+    CFRelease(thumbnailImageRef);
+}
+
++ (NSString *)stringWithTimeStamp {
+    NSDate *date = [NSDate date];
+    NSString *dateStr = [NSString stringWithFormat:@"%ld",(long)([date timeIntervalSince1970] * 1000)];
+    return dateStr;
 }
 
 @end

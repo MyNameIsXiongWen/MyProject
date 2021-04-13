@@ -14,11 +14,14 @@
 @property (nonatomic, strong) UIButton *leftNavBtn;
 //导航栏右边按钮
 @property (nonatomic, strong) UIButton *rightNavBtn;
+@property (nonatomic, strong) UIButton *rightAnotherNavBtn;
 @property (nonatomic, strong) UIPercentDrivenInteractiveTransition *percentDrivenTransition;
 
 //左侧按钮事件
 - (void)leftNavBtnAction:(UIButton *)sender;
 //右侧按钮事件
 - (void)rightNavBtnAction:(UIButton *)sender;
+//右侧按钮事件
+- (void)rightAnotherNavBtnAction:(UIButton *)sender;
 
 @end
