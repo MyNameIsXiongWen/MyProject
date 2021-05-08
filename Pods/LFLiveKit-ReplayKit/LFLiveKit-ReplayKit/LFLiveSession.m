@@ -118,8 +118,15 @@
 }
 
 - (void)pushVideoBuffer:(CMSampleBufferRef)sampleBuffer {
-    CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
-    [self pushVideo:pixelBuffer];
+    CVPixelBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+    CVPixelBufferLockBaseAddress(imageBuffer,0);
+    size_t bytesPerRow =CVPixelBufferGetBytesPerRow(imageBuffer);
+    size_t width =CVPixelBufferGetWidth(imageBuffer);
+    size_t height =CVPixelBufferGetHeight(imageBuffer);
+    void*src_buff =CVPixelBufferGetBaseAddress(imageBuffer);
+    NSData*data = [NSData dataWithBytes:src_buff length:bytesPerRow * height];
+    CVPixelBufferUnlockBaseAddress(imageBuffer, 0);
+//    [self pushVideo:imageBuffer];
 }
 
 - (void)pushVideo:(nullable CVPixelBufferRef)pixelBuffer{

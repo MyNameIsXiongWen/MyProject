@@ -51,7 +51,6 @@
 		961CAD442252F1AA00110AD0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CAD432252F1AA00110AD0 /* AppDelegate.m */; };
 		961CAD472252F1AA00110AD0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CAD462252F1AA00110AD0 /* ViewController.m */; };
 		961CAD4A2252F1AA00110AD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961CAD482252F1AA00110AD0 /* Main.storyboard */; };
-		961CAD4D2252F1AA00110AD0 /* MyProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 961CAD4B2252F1AA00110AD0 /* MyProject.xcdatamodeld */; };
 		961CAD4F2252F1B300110AD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961CAD4E2252F1B300110AD0 /* Assets.xcassets */; };
 		961CAD522252F1B300110AD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961CAD502252F1B300110AD0 /* LaunchScreen.storyboard */; };
 		961CAD552252F1B300110AD0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 961CAD542252F1B300110AD0 /* main.m */; };
@@ -1143,7 +1142,6 @@
 				961CADE82253166800110AD0 /* UICollectionView+Category.m in Sources */,
 				961CAD662252F21600110AD0 /* BaseNavigationController.m in Sources */,
 				18554C34250CA5E8006D64B7 /* QHWBaseScrollContentViewController.m in Sources */,
-				961CAD4D2252F1AA00110AD0 /* MyProject.xcdatamodeld in Sources */,
 				18554C2D250CA5D7006D64B7 /* QHWPageContentView.m in Sources */,
 				961CADCE2252FA1000110AD0 /* MKPassWordView.m in Sources */,
 				961CAD6E2252F2A300110AD0 /* MineViewController.m in Sources */,

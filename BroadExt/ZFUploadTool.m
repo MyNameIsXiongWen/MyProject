@@ -54,7 +54,7 @@ inline static NSString *formatedSpeed(float bytes, float elapsed_milli) {
     _mic = YES;
     _frameQuality = [dict[@"frameQuality"] intValue]; // 0 高 1中 2低
     if (!_url) {
-        _url = @"rtmp://192.168.205.236:1935/rtmplive/room";
+        _url = @"rtmp://192.168.207.106:1935/rtmplive/room";
     }
     [self lf];
 }
